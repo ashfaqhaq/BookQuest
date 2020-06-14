@@ -1,6 +1,36 @@
 import React from 'react';
 
 
+
+function Content({title}){
+    return(
+        // 
+
+        <div>
+            {/* <h1>{props.content}</h1> */}
+         <p>  Title: {title} </p>
+        {/*          <p>  Image: {this.state.image_url}</p>
+                <p> Number of Pages: {this.state.num_pages} </p>
+            Authors:  {this.state.authors_array.map(author => {
+                    return (
+                        <li>
+                            {author}
+                        </li>
+
+                    )
+                })}
+
+
+                <p>  Average Rating: {this.state.average_rating} </p>
+                <p> Description: {this.state.description} </p>
+
+
+           Book link: {this.state.book_url}
+             */}
+                </div>
+
+    )}
+
 function strip_html_tags(str) {
     if ((str === null) || (str === ''))
         return false;
@@ -32,6 +62,7 @@ class Search extends React.Component {
 
     handleSubmit(e) {
         //() {
+            
         e.preventDefault();
 
 
@@ -104,7 +135,8 @@ class Search extends React.Component {
                     isLoaded: true,
                 })
             })
-
+            
+           
 
 
 
@@ -125,7 +157,7 @@ render(){
 
 
             <div>
-                <form onSubmit={this.handleSubmit}>
+                <form onSubmit= {this.handleSubmit}> 
                     <input
                         type="text"
                         placeholder="Search..."
@@ -133,27 +165,11 @@ render(){
                         onChange={this.handleChange} />
 
                     <input type="submit" value="Submit" />
+                    
                 </form>
-                <p>  Title: {this.state.title} </p>
-                <p>  Image: {this.state.image_url}</p>
-                <p> Number of Pages: {this.state.num_pages} </p>
-            Authors:  {this.state.authors_array.map(author => {
-                    return (
-                        <li>
-                            {author}
-                        </li>
-
-                    )
-                })}
-
-
-                <p>  Average Rating: {this.state.average_rating} </p>
-                <p> Description: {this.state.description} </p>
-
-
-           Book link: {this.state.book_url}
-            
-
+                
+                <Content title={this.state.title} />
+               
 
                 
         </div>
