@@ -10,9 +10,8 @@ import {
 import { NavLink } from 'react-router-dom';
 import Test from './test';
 import { useHistory } from "react-router-dom";
-// import History from './history';
+import Intro from './history';
 import { withRouter } from 'react-router-dom';
-
 
 
 
@@ -67,24 +66,26 @@ class App extends React.Component {
     return (
       <Router>
         <div className="App">
-          <h1> Search for a book </h1>
-          <form ref='myForm' action='/test'>
-            <input id="foo" type="text"/>
-              <input type="Submit"/>
-              </form>
-            {/* <form onSubmit={<Link to="/test"/>}>
+
+          {/* <form onSubmit={<Link to="/test"/>}>
             <input type="text" />
             <button onClick={<Link to="/test"/>}>asdad</button>
 
-
+      
           </form> */}
+          <div>
+         
 
-            <Switch>
-            
-              <Route path="/test">
-                <Test />
+          </div>
+
+             <Switch>
+            <Route path="/" exact>
+              <Intro />
               </Route>
-            </Switch>
+            <Route path="/test/">
+              <Test />
+            </Route>
+          </Switch>
 
         </div>
 
