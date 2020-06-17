@@ -1,6 +1,6 @@
 
 import React from 'react';
-import Search from './search';
+// import Search from './search';
 import {
   BrowserRouter as Router,
   Switch,
@@ -8,17 +8,26 @@ import {
   Link, Redirect
 } from "react-router-dom";
 import { NavLink } from 'react-router-dom';
-import Test from './test';
+// import Test from './test';
+import Page from './components/page';
 import { useHistory } from "react-router-dom";
-import Intro from './history';
+// import SearchBar from './components/searchBar';
 import { withRouter } from 'react-router-dom';
 
-
+// function New(){
+//   const history= useHistory();
+//   const navigateTo = () => history.push('/page');
+// }
 
 class App extends React.Component {
 
 
-
+  //  window.history = () => useHistory();
+  redirectToHome = () => {
+    const { history } = this.props;
+    if(history) history.push('/page');
+    
+   }
 
 
 
@@ -35,7 +44,7 @@ class App extends React.Component {
     this.state = {
       // items: [],
       value: props.value,
-      temp: '',
+      temp: 'awe',
       search: '',
       title: '',
       image_url: '',
@@ -53,7 +62,7 @@ class App extends React.Component {
   //     return <Link to="/test" />
   //   }
   render() {
-
+    const { history } = this.props;
     //    const { isLoaded} = this.state;
     // console.log(items);
     // // console.log(items.results);
@@ -67,25 +76,25 @@ class App extends React.Component {
       <Router>
         <div className="App">
 
-          {/* <form onSubmit={<Link to="/test"/>}>
+          <form>
             <input type="text" />
-            <button onClick={<Link to="/test"/>}>asdad</button>
+            {/* <button onClick={()=><Redirect to="/page" />}>asdad</button> */}
+            <div>
+              <button onClick={this.redirectToHome}>You can go to Home </button></div>
+            {/* <button onClick={()=>New.navigateTo} type="button" > asdasdj </button> */}
+            {/* <Link to="/page"/> */}
 
       
-          </form> */}
-          <div>
+          </form>
          
-
-          </div>
-
              <Switch>
-            <Route path="/" exact>
-              <Intro />
-              </Route>
-            <Route path="/test/">
-              <Test />
+            {/* {/* <Route path="/" exact>
+              <SearchBar />
+              </Route> */}
+              <Route path="/page/">
+              <Page title={this.state.temp}/>
             </Route>
-          </Switch>
+          </Switch> 
 
         </div>
 
@@ -99,7 +108,7 @@ class App extends React.Component {
 }
 
 // export default withRouter(App);
-export default App;
+export default withRouter(App);
 // export default withRouter(App);
 
 
