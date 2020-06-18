@@ -16,7 +16,7 @@ class Page extends React.Component{
     return (
         <div>
             
-            <h2>{this.props.title}</h2>
+             {/* <h2>{this.props.title}</h2>  */}
             <h2>Sucessfull</h2>
         </div>
     )

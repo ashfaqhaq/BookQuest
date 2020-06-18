@@ -1,6 +1,6 @@
 
 import React from 'react';
-// import Search from './search';
+import Search from './search';
 import {
   BrowserRouter as Router,
   Switch,
@@ -13,6 +13,8 @@ import Page from './components/page';
 import { useHistory } from "react-router-dom";
 // import SearchBar from './components/searchBar';
 import { withRouter } from 'react-router-dom';
+import {BookProvider} from './bookProvider';
+import Nav from './nav';
 
 // function New(){
 //   const history= useHistory();
@@ -23,11 +25,7 @@ class App extends React.Component {
 
 
   //  window.history = () => useHistory();
-  redirectToHome = () => {
-    const { history } = this.props;
-    if(history) history.push('/page');
-    
-   }
+
 
 
 
@@ -41,28 +39,59 @@ class App extends React.Component {
 
     super(props);
 
-    this.state = {
-      // items: [],
-      value: props.value,
-      temp: 'awe',
-      search: '',
-      title: '',
-      image_url: '',
-      num_pages: '',
-      authors_array: [],
-      description: '',
-      average_rating: '',
-      book_url: '',
+    // this.state = {
+    //   // items: [],
+    //   value: props.value,
+    //   temp: '',
+    //   search: '',
+    //   title: '',
+    //   image_url: '',
+    //   num_pages: '',
+    //   authors_array: [],
+    //   description: '',
+    //   average_rating: '',
+    //   book_url: '',
 
-      isLoaded: false
-    }
+    //   isLoaded: false
+    // }
 
   }
+  // redirectToHome = (e) => {
+  //   //  e.preventDefault()
+  //   // this.setState({
+  //   //   temp: this.state.temp
+  //   // })
+  //   // console.log(this.state.temp)
+  //   const { history } = this.props;
+  //   if (history) history.push('/page');
+  // }
+
+  // handleChange = (e) => {
+  //   this.setState({
+  //     temp: e.target.value
+  //   })
+  // }
+
   //  routeChange=(e)=> {
   //     return <Link to="/test" />
   //   }
   render() {
-    const { history } = this.props;
+    // state = {
+    //     // items: [],
+    //     value: props.value,
+    //     temp: '',
+    //     search: '',
+    //     title: '',
+    //     image_url: '',
+    //     num_pages: '',
+    //     authors_array: [],
+    //     description: '',
+    //     average_rating: '',
+    //     book_url: '',
+  
+    //     isLoaded: false
+    // }
+    // const { history } = this.props;
     //    const { isLoaded} = this.state;
     // console.log(items);
     // // console.log(items.results);
@@ -73,31 +102,38 @@ class App extends React.Component {
 
 
     return (
+
       <Router>
+        <BookProvider>
         <div className="App">
 
-          <form>
-            <input type="text" />
+
+          <Nav title='heysd'/>
+           {/* <form >
+            <input type="text" onChange={this.handleChange} value={this.state.temp} />
             {/* <button onClick={()=><Redirect to="/page" />}>asdad</button> */}
-            <div>
-              <button onClick={this.redirectToHome}>You can go to Home </button></div>
+            {/* <div>
+              <button onClick={this.redirectToHome}>You can go to Home </button></div> */}
             {/* <button onClick={()=>New.navigateTo} type="button" > asdasdj </button> */}
             {/* <Link to="/page"/> */}
 
-      
-          </form>
-         
-             <Switch>
-            {/* {/* <Route path="/" exact>
-              <SearchBar />
-              </Route> */}
-              <Route path="/page/">
-              <Page title={this.state.temp}/>
-            </Route>
-          </Switch> 
+
+          {/* </form>   */}
+
+          <Switch>
+            {/* <Route path='/' exact>
+              
+            </Route> */}
+             {/* <Route path="/" exact>
+              <Search />
+              </Route>
+            <Route path="/page/">
+              <Page />
+            </Route> */}
+          </Switch>
 
         </div>
-
+        </BookProvider>
       </Router>
 
     )
@@ -108,7 +144,7 @@ class App extends React.Component {
 }
 
 // export default withRouter(App);
-export default withRouter(App);
+export default App;
 // export default withRouter(App);
 
 
