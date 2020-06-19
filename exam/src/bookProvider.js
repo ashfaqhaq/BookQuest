@@ -8,7 +8,7 @@ export const BookContext = createContext();
 		super(props)
 		this.updateState = this.updateState.bind(this) // ← Here
 		this.state = ({
-			search: 'hel',
+			search: '',
 			update: this.updateState // ← Here
 		})
 	}
