@@ -109,9 +109,12 @@ class App extends React.Component {
         <BookProvider>
         <div className="App">
 
-          {/* <AddBook /> */}
-
-          <Nav />
+        <Nav />
+        <AddBook />
+          
+          <h1>sdasd</h1>
+          
+          {/* <New /></New> */}
            {/* <form >
             <input type="text" onChange={this.handleChange} value={this.state.temp} />
             {/* <button onClick={()=><Redirect to="/page" />}>asdad</button> */}

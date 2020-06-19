@@ -1,33 +1,23 @@
-import React, {useState} from 'react';
+import React, {useState, Component} from 'react';
 import {BookContext} from './bookProvider';
 
+class AddBook extends Component{
+    static contextType = BookContext;
 
-const AddBook=()=>{
-    const [title,setTitle] = useState('');
-    // const [title,setTitle] = useContext(BookContext);
-    
-    const updateTitle =(e)=>{
-        setTitle(e.target.value)
-    }
-
-    const addBook = (e) =>{
-        e.preventDefault();
-        setTitle({title:title})
-                console.log(title)
-    }
-    
-
-return(
-
-<form>
-    <input type="text" name="title" value={title}  onChange={updateTitle}>
- 
-    </input>
-    <button  value={addBook}> hello button</button>
-
-</form>
-
-)
-
+render() {
+    const {search,author} =this.context
+    return (
+        <div>
+            <h1>
+                {search} is the addBook
+                </h1>
+                <h2>
+                    {/* {update} */}
+                {/* {author} */}
+            </h2>
+        </div>
+    )
 }
+}
+
 export default AddBook
