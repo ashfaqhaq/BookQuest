@@ -108,10 +108,19 @@ class App extends React.Component {
       <Router>
         <BookProvider>
         <div className="App">
-
-        <Nav />
+        <Switch>
+            
+             <Route path="/" exact>
+              <Nav />
+              
+              </Route>
+            <Route path="/page/">
+              <AddBook />
+            </Route>
+          </Switch>
+        {/* <Nav />
         <AddBook />
-          
+           */}
           <h1>sdasd</h1>
           
           {/* <New /></New> */}
@@ -126,17 +135,7 @@ class App extends React.Component {
 
           {/* </form>   */}
 
-          <Switch>
-            {/* <Route path='/' exact>
-              
-            </Route> */}
-             {/* <Route path="/" exact>
-              <Search />
-              </Route>
-            <Route path="/page/">
-              <Page />
-            </Route> */}
-          </Switch>
+         
 
         </div>
         </BookProvider>
@@ -150,8 +149,8 @@ class App extends React.Component {
 }
 
 // export default withRouter(App);
-export default App;
-// export default withRouter(App);
+// export default App;
+export default withRouter(App);
 
 
 

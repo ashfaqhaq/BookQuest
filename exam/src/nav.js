@@ -1,20 +1,32 @@
 import React, { Component, useContext, useState } from 'react'
 import { BookContext } from './bookProvider'
+import {
+    BrowserRouter as Router,
+    Switch,
+    Route,
+    Link, Redirect,withRouter
+  } from "react-router-dom";
+  import { useHistory } from "react-router-dom";
 
 
 // 
-
 class Nav extends Component {
     state={
         query:''
     }
+    
     onSubmit=(e)=>{
         e.preventDefault();
         console.log(this.state.query)
         // this.setState({
         //     query:this.state.query
         // })
+        const { history } = this.props;
+         if (history) history.push('/page');
         this.context.update({ search: this.state.query })
+         
+        
+        
     }
 
     handleChange=(e)=>{
@@ -23,6 +35,7 @@ class Nav extends Component {
             query: e.target.value
             
         })
+        
         
     }
 
@@ -33,7 +46,7 @@ class Nav extends Component {
     render() {
 
         //const { title, author } = this.context
-        return (
+        return (    
             <div>
                <form>
                 <input type="text" onChange={this.handleChange} />
@@ -43,9 +56,11 @@ class Nav extends Component {
                </form>
                {/* <h3>{this.context.title}</h3> */}
             </div>
+           
         )
     }
 }
+
 Nav.contextType = BookContext
 
-export default Nav
+export default withRouter(Nav);
