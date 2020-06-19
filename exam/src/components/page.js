@@ -1,4 +1,5 @@
 import React from 'react';
+import {BookContext}from '../bookProvider'
 
 // componentDidMount(){
 
@@ -11,7 +12,7 @@ import React from 'react';
 
 class Page extends React.Component{
 // const Page=(props)=>{
-   
+//    book [title,setTitle] = useContext(BookContext)
  render(){
     return (
         <div>

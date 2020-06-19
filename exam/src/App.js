@@ -13,14 +13,16 @@ import Page from './components/page';
 import { useHistory } from "react-router-dom";
 // import SearchBar from './components/searchBar';
 import { withRouter } from 'react-router-dom';
-import {BookProvider} from './bookProvider';
+import AddBook from './addBook';
+import BookProvider from './bookProvider';
 import Nav from './nav';
+import {BookContext} from './bookProvider';
 
 // function New(){
 //   const history= useHistory();
 //   const navigateTo = () => history.push('/page');
 // }
-
+// const [title,setTitle] = useContext(BookContext);
 class App extends React.Component {
 
 
@@ -100,15 +102,16 @@ class App extends React.Component {
     // if (!isLoaded)
     //     return <div>Loading...</div>;
 
-
+   
     return (
 
       <Router>
         <BookProvider>
         <div className="App">
 
+          {/* <AddBook /> */}
 
-          <Nav title='heysd'/>
+          <Nav />
            {/* <form >
             <input type="text" onChange={this.handleChange} value={this.state.temp} />
             {/* <button onClick={()=><Redirect to="/page" />}>asdad</button> */}

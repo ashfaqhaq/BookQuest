@@ -1,15 +1,23 @@
-import React, { Component ,useContext ,useState  } from 'react'
-import {BookContext} from './bookProvider'
+import React, { Component, useContext, useState } from 'react'
+import { BookContext } from './bookProvider'
 
-export const Nav = (props) => {
-    const [title,setTitle] = useContext(BookContext)
-    
-        return(
+class Nav extends Component {
+    static contextType = BookContext;
+
+    render() {
+        const { title, author } = this.context
+        return (
             <div>
-              <h3>  {props.title} </h3>
+                <h1>
+                    {title}
+                    </h1>
+                    <h2>
+                    {author}
+                </h2>
             </div>
         )
     }
+}
 
 
 export default Nav
