@@ -118,11 +118,12 @@ class App extends React.Component {
           
         <Switch>
             
-             <Route path="/" exact>
+             <Route path="/" exact >
               <Nav />
               
               </Route>
             <Route path="/search/:search_query">
+             <Nav/>
               <AddBook />
            
             </Route>

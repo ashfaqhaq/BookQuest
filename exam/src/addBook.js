@@ -2,6 +2,8 @@ import React, { useState, Component } from 'react';
 import { BookContext } from './bookProvider'
 import { useLocation } from 'react-router-dom';
 import PropTypes from 'prop-types'
+import Nav from './nav';
+import { withRouter ,Router} from 'react-router-dom';
 function strip_html_tags(str) {
     if ((str === null) || (str === ''))
         return false;
@@ -16,15 +18,20 @@ class AddBook extends Component {
     //     location: PropTypes.object.isRequired,
     //     history: PropTypes.object.isRequired
     //   }
-    
-    componentDidMount() {
+    static contextType = BookContext;
+   constructor(props) {
+       super(props)
+      
         // const { match, location, history } = this.props
         // console.log(location)
         // console.log(this.getParams)
         // console.log( this.props);
+    //    let search= 
         //const search=id;
         // console.log(this.context.search);
-       const { search } = this.context
+        // console.log(this.props)
+       let search=(this.props.match.params.search_query)
+    //    const { search } = this.context
         // console.log(search,'is the book')
         const proxyurl = "https://cors-anywhere.herokuapp.com/";
         const url = "https://www.goodreads.com/book/title.xml?&key=Qc7VROD3HnHe8Z5osP9Gzw&title=" + search;
@@ -113,9 +120,10 @@ class AddBook extends Component {
 
         isLoaded: false
     }
-    static contextType = BookContext;
-
+   
+    
     render() {
+        
         const { search, author } = this.context
         const { isLoaded } = this.state.isLoaded
 
@@ -123,6 +131,8 @@ class AddBook extends Component {
         //     return(<div>loading....</div>)
 
         return (
+        
+            
 
             <div>
 
@@ -149,4 +159,4 @@ class AddBook extends Component {
     }
 }
 
-export default AddBook
+export default withRouter(AddBook)
