@@ -18,19 +18,25 @@ class Nav extends Component {
     onSubmit=(e)=>{
         e.preventDefault();
         console.log(this.state.query)
+       const search_query=this.state.query
         // this.setState({
         //     query:this.state.query
         // })
         const { history } = this.props;
-         if (history) history.push('/page');
+           if (history) this.props.history.push(`/search/:${search_query}`)
+        // if (history) history.push({
+        //     pathname: '/search',
+        //     customNameData: search_query,
+        //   });
         this.context.update({ search: this.state.query })
+        
          
         
         
     }
 
     handleChange=(e)=>{
-        console.log(this.state.query)
+        // console.log(this.state.query)
         this.setState({
             query: e.target.value
             

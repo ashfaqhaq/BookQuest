@@ -1,5 +1,7 @@
 import React, { useState, Component } from 'react';
 import { BookContext } from './bookProvider'
+import { useLocation } from 'react-router-dom';
+import PropTypes from 'prop-types'
 function strip_html_tags(str) {
     if ((str === null) || (str === ''))
         return false;
@@ -9,9 +11,20 @@ function strip_html_tags(str) {
 }
 
 class AddBook extends Component {
+    // static propTypes = {
+    //     match: PropTypes.object.isRequired,
+    //     location: PropTypes.object.isRequired,
+    //     history: PropTypes.object.isRequired
+    //   }
+    
     componentDidMount() {
+        // const { match, location, history } = this.props
+        // console.log(location)
+        // console.log(this.getParams)
+        // console.log( this.props);
+        //const search=id;
         // console.log(this.context.search);
-        const {search}=this.context
+       const { search } = this.context
         // console.log(search,'is the book')
         const proxyurl = "https://cors-anywhere.herokuapp.com/";
         const url = "https://www.goodreads.com/book/title.xml?&key=Qc7VROD3HnHe8Z5osP9Gzw&title=" + search;
@@ -82,7 +95,7 @@ class AddBook extends Component {
                 })
             })
 
-        
+
     }
 
     state = {
@@ -104,24 +117,32 @@ class AddBook extends Component {
 
     render() {
         const { search, author } = this.context
+        const { isLoaded } = this.state.isLoaded
+
+        // while(!isLoaded)
+        //     return(<div>loading....</div>)
+
         return (
+
             <div>
-                 <div>
-            {/* <h1>{props.content}</h1> */}
-                 <p>  Title: {this.state.title} </p>
-                 <p>  Image: {this.state.image_url}</p>
-                <p> Number of Pages: {this.state.num_pages} </p>
-            Authors:  {this.state.authors_array.map(author => {
-                    return (
-                        <li>
-                            {author}
-                        </li>
-                    )
-                })}
-                <p>  Average Rating: {this.state.average_rating} </p>
-                <p> Description: {this.state.description} </p>
-           Book link: {this.state.book_url}
-            
+
+
+                <div>
+
+                    <p>  Title: {this.state.title} </p>
+                    <p>  Image: {this.state.image_url}</p>
+                    <p> Number of Pages: {this.state.num_pages} </p>
+                        Authors:  {this.state.authors_array.map(author => {
+                        return (
+                            <li>
+                                {author}
+                            </li>
+                        )
+                    })}
+                    <p>  Average Rating: {this.state.average_rating} </p>
+                    <p> Description: {this.state.description} </p>
+                      Book link: {this.state.book_url}
+
                 </div>
             </div>
         )

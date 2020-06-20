@@ -19,6 +19,15 @@ class SearchBar extends React.Component {
         isLoaded: false
     }
     //  handleSubmit = this.handleSubmit.bind(this);
+// redirectToHome = (e) => {
+  //   //  e.preventDefault()
+  //   // this.setState({
+  //   //   temp: this.state.temp
+  //   // })
+  //   // console.log(this.state.temp)
+  //   const { history } = this.props;
+  //   if (history) history.push('/page');
+  // }
 
 
 

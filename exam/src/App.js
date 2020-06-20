@@ -38,9 +38,9 @@ class App extends React.Component {
    * @object  @state  component state
    */
   constructor(props) {
-
+    
     super(props);
-
+    // static contextType = BookContext;
     // this.state = {
     //   // items: [],
     //   value: props.value,
@@ -77,7 +77,14 @@ class App extends React.Component {
   //  routeChange=(e)=> {
   //     return <Link to="/test" />
   //   }
+  
+  
+  
+     
   render() {
+   
+   
+    // const { search, author } = this.context
     // state = {
     //     // items: [],
     //     value: props.value,
@@ -102,20 +109,22 @@ class App extends React.Component {
     // if (!isLoaded)
     //     return <div>Loading...</div>;
 
-   
+    
     return (
-
+     
       <Router>
         <BookProvider>
         <div className="App">
+          
         <Switch>
             
              <Route path="/" exact>
               <Nav />
               
               </Route>
-            <Route path="/page/">
+            <Route path="/search/:search_query">
               <AddBook />
+           
             </Route>
           </Switch>
         {/* <Nav />

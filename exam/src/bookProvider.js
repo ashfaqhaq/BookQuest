@@ -15,7 +15,8 @@ export const BookContext = createContext();
 
 	updateState(values) { // ← And here
 		this.setState(values)
-	}
+    }
+    
 
 	render() {
 		return (
