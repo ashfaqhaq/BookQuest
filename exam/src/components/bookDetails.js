@@ -1,8 +1,8 @@
 import React, { useState, Component } from 'react';
-import { BookContext } from './bookProvider'
+import { BookContext } from '../contextProvider/bookProvider'
 import { useLocation } from 'react-router-dom';
 import PropTypes from 'prop-types'
-import Nav from './nav';
+import Nav from './searchBar';
 import { withRouter, Router } from 'react-router-dom';
 function strip_html_tags(str) {
     if ((str === null) || (str === ''))
@@ -12,7 +12,7 @@ function strip_html_tags(str) {
     return str.replace(/<[^>]*>/g, '');
 }
 
-class AddBook extends Component {
+class BookDetails extends Component {
     // static propTypes = {
     //     match: PropTypes.object.isRequired,
     //     location: PropTypes.object.isRequired,
@@ -164,4 +164,4 @@ class AddBook extends Component {
     }
 }
 
-export default withRouter(AddBook)
+export default withRouter(BookDetails)

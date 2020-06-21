@@ -1,6 +1,6 @@
 
 import React from 'react';
-import Search from './search';
+
 import {
   BrowserRouter as Router,
   Switch,
@@ -8,26 +8,19 @@ import {
   Link, Redirect
 } from "react-router-dom";
 import { NavLink } from 'react-router-dom';
-// import Test from './test';
-import Page from './components/page';
 import { useHistory } from "react-router-dom";
-// import SearchBar from './components/searchBar';
 import { withRouter } from 'react-router-dom';
-import AddBook from './addBook';
-import BookProvider from './bookProvider';
-import Nav from './nav';
-import {BookContext} from './bookProvider';
+import BookDetails from './components/bookDetails';
+import BookProvider from './contextProvider/bookProvider';
+import SearchBar from './components/searchBar';
+import { BookContext } from './contextProvider/bookProvider';
+import searchBar from './components/searchBar';
 
-// function New(){
-//   const history= useHistory();
-//   const navigateTo = () => history.push('/page');
-// }
-// const [title,setTitle] = useContext(BookContext);
+
 class App extends React.Component {
 
 
-  //  window.history = () => useHistory();
-
+  
 
 
 
@@ -38,7 +31,7 @@ class App extends React.Component {
    * @object  @state  component state
    */
   constructor(props) {
-    
+
     super(props);
     // static contextType = BookContext;
     // this.state = {
@@ -77,13 +70,13 @@ class App extends React.Component {
   //  routeChange=(e)=> {
   //     return <Link to="/test" />
   //   }
-  
-  
-  
-     
+
+
+
+
   render() {
-   
-   
+
+
     // const { search, author } = this.context
     // state = {
     //     // items: [],
@@ -97,7 +90,7 @@ class App extends React.Component {
     //     description: '',
     //     average_rating: '',
     //     book_url: '',
-  
+
     //     isLoaded: false
     // }
     // const { history } = this.props;
@@ -109,32 +102,32 @@ class App extends React.Component {
     // if (!isLoaded)
     //     return <div>Loading...</div>;
 
-    
+
     return (
-     
+
       <Router>
         <BookProvider>
-        <div className="App">
-          
-        <Switch>
-            
-             <Route path="/" exact >
-              <Nav />
-              
+          <div className="App">
+
+            <Switch>
+
+              <Route path="/" exact >
+                <SearchBar />
+
               </Route>
-            <Route path="/search/:search_query">
-             <Nav/>
-              <AddBook />
-           
-            </Route>
-          </Switch>
-        {/* <Nav />
+              <Route path="/search/:search_query">
+                <SearchBar />
+                <BookDetails />
+
+              </Route>
+            </Switch>
+            {/* <Nav />
         <AddBook />
            */}
-          
-          
-          {/* <New /></New> */}
-           {/* <form >
+
+
+            {/* <New /></New> */}
+            {/* <form >
             <input type="text" onChange={this.handleChange} value={this.state.temp} />
             {/* <button onClick={()=><Redirect to="/page" />}>asdad</button> */}
             {/* <div>
@@ -143,11 +136,11 @@ class App extends React.Component {
             {/* <Link to="/page"/> */}
 
 
-          {/* </form>   */}
+            {/* </form>   */}
 
-         
 
-        </div>
+
+          </div>
         </BookProvider>
       </Router>
 

@@ -1,73 +1,74 @@
-import React from 'react'
-import { Link, Redirect, Switch, Route } from 'react-router-dom';
-import Page from './page';
+import React, { Component, useContext, useState } from 'react'
+import { BookContext } from '../contextProvider/bookProvider'
+import {
+    BrowserRouter as Router,
+    Switch,
+    Route,
+    Link, Redirect,withRouter
+  } from "react-router-dom";
+  import { useHistory } from "react-router-dom";
 
-class SearchBar extends React.Component {
-    state = {
-        // items: [],
-        // value: props.value,
-        temp: 'bb',
-        search: '',
-        title: '',
-        image_url: '',
-        num_pages: '',
-        authors_array: [],
-        description: '',
-        average_rating: '',
-        book_url: '',
 
-        isLoaded: false
+// 
+class SearchBar extends Component {
+    state={
+        query:''
     }
-    //  handleSubmit = this.handleSubmit.bind(this);
-// redirectToHome = (e) => {
-  //   //  e.preventDefault()
-  //   // this.setState({
-  //   //   temp: this.state.temp
-  //   // })
-  //   // console.log(this.state.temp)
-  //   const { history } = this.props;
-  //   if (history) history.push('/page');
-  // }
-
-
-
-    handleSubmit = (e) => {
-      e.preventDefault();
-      
-
+    
+    onSubmit=(e)=>{
+        
+        console.log(this.state.query)
+       const search_query=this.state.query
+        // this.setState({
+        //     query:this.state.query
+        // })
+        this.context.update({ search: this.state.query })
+        // <Redirect{} />
+        const { history } = this.props;
+           if (history) this.props.history.push(`/search/:${search_query}`)
+        // if (history) history.push({
+        //     pathname: '/search',
+        //     customNameData: search_query,
+        //   });
+        
+        
+         
+        
+        
     }
-    handleChange = (e) => {
+
+    handleChange=(e)=>{
+        // console.log(this.state.query)
         this.setState({
-            search: e.target.value
+            query: e.target.value
+            
         })
-        console.log(this.state)
+        
+        
     }
+
+
+
+    static contextType = BookContext;
+
     render() {
-        return (
+
+        //const { title, author } = this.context
+        return (    
             <div>
-                <h1> Search for a book </h1>
-                {/* <form ref='myForm' action='/page'> */}
-                <form ref='myForm' onSubmit={this.handleSubmit}>
+               <form>
+                <input type="text" onChange={this.handleChange} />
+                {/* value={this.state.query} */}
+                <button onClick={this.onSubmit} > Click me  </button>
 
-                    <input id="foo" type="text" onChange={this.handleChange} />
-
-
-                    </form>
-
-                    {/* <Switch>
-                        {/* <Route path="/" exact>
-              <SearchBar />
-              </Route> */}
-                        {/* <Route path="/page/">
-                            <Page title={this.state.temp} />
-                        </Route>
-                    </Switch>  */}
-
-
-
+               </form>
+               {/* <h3>{this.context.title}</h3> */}
             </div>
+           
         )
     }
 }
 
-export default SearchBar;
+SearchBar.contextType = BookContext
+
+export default withRouter(SearchBar);
