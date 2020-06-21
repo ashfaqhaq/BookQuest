@@ -11,12 +11,12 @@ import { NavLink } from 'react-router-dom';
 import { useHistory } from "react-router-dom";
 // function LoginLayout() {
 
- 
 
 const Test=()=>{
 
     // render() {
         console.log('worked');
+        // console.log()
         return (
             
             <div>

@@ -1,121 +1,166 @@
 
 import React from 'react';
-import Search from './search';
+
 import {
-    BrowserRouter as Router,
-    Switch,
-    Route,
-    Link,Redirect
-  } from "react-router-dom";
-  import { NavLink } from 'react-router-dom' ;
-import Test from './test';
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link, Redirect
+} from "react-router-dom";
+import { NavLink } from 'react-router-dom';
 import { useHistory } from "react-router-dom";
-// import History from './history';
 import { withRouter } from 'react-router-dom';
-
-
+import BookDetails from './components/bookDetails';
+import BookProvider from './contextProvider/bookProvider';
+import SearchBar from './components/searchBar';
+import { BookContext } from './contextProvider/bookProvider';
+import searchBar from './components/searchBar';
 
 
 class App extends React.Component {
-    
 
-     
 
-    // onRedirect(){
-    //     this.history.push('/test/');
+  
+
+
+
+  /**
+   * constructor
+   *
+   * @object  @props  parent props
+   * @object  @state  component state
+   */
+  constructor(props) {
+
+    super(props);
+    // static contextType = BookContext;
+    // this.state = {
+    //   // items: [],
+    //   value: props.value,
+    //   temp: '',
+    //   search: '',
+    //   title: '',
+    //   image_url: '',
+    //   num_pages: '',
+    //   authors_array: [],
+    //   description: '',
+    //   average_rating: '',
+    //   book_url: '',
+
+    //   isLoaded: false
     // }
 
-    /**
-     * constructor
-     *
-     * @object  @props  parent props
-     * @object  @state  component state
-     */
-    constructor(props) {
+  }
+  // redirectToHome = (e) => {
+  //   //  e.preventDefault()
+  //   // this.setState({
+  //   //   temp: this.state.temp
+  //   // })
+  //   // console.log(this.state.temp)
+  //   const { history } = this.props;
+  //   if (history) history.push('/page');
+  // }
 
-        super(props);
+  // handleChange = (e) => {
+  //   this.setState({
+  //     temp: e.target.value
+  //   })
+  // }
 
-        this.state = {
-            // items: [],
-            value: props.value,
-            temp: '',
-            search: '',
-            title: '',
-            image_url: '',
-            num_pages: '',
-            authors_array: [],
-            description: '',
-            average_rating: '',
-            book_url: '',
-
-            isLoaded: false
-        }
-
-    }
-     routeChange=(e)=> {
-        this.props.history.push('/test');
-      }
-    render() {
-
-        //    const { isLoaded} = this.state;
-        // console.log(items);
-        // // console.log(items.results);
-
-
-        // if (!isLoaded)
-        //     return <div>Loading...</div>;
-        
-    
-        return (
-            <Router>
-            <div className="App">
-                <h1> Search for a book </h1>
-                {/* <Link to='/search'>Search</Link> */}
-                <Link to="/test">Sign up</Link>
+  //  routeChange=(e)=> {
+  //     return <Link to="/test" />
+  //   }
 
 
 
-                {/* <button onClick={()=><Redirect to='/test'/>} > Hi there </button> */}
 
-                {/* <form onSubmit={this.routeChange}>
+  render() {
 
-                    <input type="text" >sdsd</input>
-                </form> */}
-                  {/* <button onClick={this.handleClick}>sda</button> */}
-                {/* <button  onClick={() => history.push('/test')}>Click button to view products</button> */}
-                {/* <Switch>
-              <Route exact path="/" component={isLoggedIn} />
-              </Switch> */}
-                {/* <Search search={this.state} />
-                <Route to="/page" /> */}
-               
-            </div>
+
+    // const { search, author } = this.context
+    // state = {
+    //     // items: [],
+    //     value: props.value,
+    //     temp: '',
+    //     search: '',
+    //     title: '',
+    //     image_url: '',
+    //     num_pages: '',
+    //     authors_array: [],
+    //     description: '',
+    //     average_rating: '',
+    //     book_url: '',
+
+    //     isLoaded: false
+    // }
+    // const { history } = this.props;
+    //    const { isLoaded} = this.state;
+    // console.log(items);
+    // // console.log(items.results);
+
+
+    // if (!isLoaded)
+    //     return <div>Loading...</div>;
+
+
+    return (
+
+      <Router>
+        <BookProvider>
+          <div className="App">
+
             <Switch>
-          {/* <Route exact path="/">
-            <Home />
-          </Route> */}
-          <Route path="/test">
-            <Test />
-          </Route>
-          {/* <Route path="/dashboard">
-            <Dashboard />
-          </Route> */}
-            </Switch>  
-             
-             </Router> 
-       
-        )   
+
+              <Route path="/" exact >
+                <SearchBar />
+
+              </Route>
+              <Route path="/search/:search_query">
+                <SearchBar />
+                <BookDetails />
+
+              </Route>
+            </Switch>
+            {/* <Nav />
+        <AddBook />
+           */}
 
 
-    }
+            {/* <New /></New> */}
+            {/* <form >
+            <input type="text" onChange={this.handleChange} value={this.state.temp} />
+            {/* <button onClick={()=><Redirect to="/page" />}>asdad</button> */}
+            {/* <div>
+              <button onClick={this.redirectToHome}>You can go to Home </button></div> */}
+            {/* <button onClick={()=>New.navigateTo} type="button" > asdasdj </button> */}
+            {/* <Link to="/page"/> */}
+
+
+            {/* </form>   */}
+
+
+
+          </div>
+        </BookProvider>
+      </Router>
+
+    )
+
+
+  }
 
 }
 
 // export default withRouter(App);
+<<<<<<< HEAD
 export default App;
 
 
 // asexport default withRouter(App);
+=======
+// export default App;
+export default withRouter(App);
+>>>>>>> 5fa059b19cb53d8377286633154bf1608dfaa372
 
 
 
