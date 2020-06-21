@@ -3,7 +3,7 @@ import { BookContext } from './bookProvider'
 import { useLocation } from 'react-router-dom';
 import PropTypes from 'prop-types'
 import Nav from './nav';
-import { withRouter ,Router} from 'react-router-dom';
+import { withRouter, Router } from 'react-router-dom';
 function strip_html_tags(str) {
     if ((str === null) || (str === ''))
         return false;
@@ -19,23 +19,23 @@ class AddBook extends Component {
     //     history: PropTypes.object.isRequired
     //   }
     static contextType = BookContext;
-   constructor(props) {
-       super(props)
-      
+    constructor(props) {
+        super(props)
+
         // const { match, location, history } = this.props
         // console.log(location)
         // console.log(this.getParams)
         // console.log( this.props);
-    //    let search= 
+        //    let search= 
         //const search=id;
         // console.log(this.context.search);
         // console.log(this.props)
-       let search=(this.props.match.params.search_query)
-    //    const { search } = this.context
+        let search = (this.props.match.params.search_query)
+        //    const { search } = this.context
         // console.log(search,'is the book')
         const proxyurl = "https://cors-anywhere.herokuapp.com/";
         const url = "https://www.goodreads.com/book/title.xml?&key=Qc7VROD3HnHe8Z5osP9Gzw&title=" + search;
-
+        console.time('test');
         fetch(proxyurl + url) // https://cors-anywhere.herokuapp.com/https://example.com
             .then(response => response.text())
 
@@ -45,7 +45,6 @@ class AddBook extends Component {
                 let parser = new DOMParser(),
                     xmlDoc = parser.parseFromString(contents, 'text/xml');
                 console.log(xmlDoc);
-
 
 
                 let grR = xmlDoc.getElementsByTagName('GoodreadsResponse')[0];
@@ -100,6 +99,8 @@ class AddBook extends Component {
 
                     isLoaded: true,
                 })
+                console.timeEnd('test');
+
             })
 
 
@@ -120,40 +121,44 @@ class AddBook extends Component {
 
         isLoaded: false
     }
-   
-    
-    render() {
-        
-        const { search, author } = this.context
-        const { isLoaded } = this.state.isLoaded
 
-        // while(!isLoaded)
-        //     return(<div>loading....</div>)
+
+    render() {
+
+        const { search, author } = this.context
+
+
+
 
         return (
-        
-            
-
             <div>
+                {!this.state.isLoaded ? (
+                    <p> Loading.....</p>
+                ) : (
+                        <div>
+                           
 
 
-                <div>
 
-                    <p>  Title: {this.state.title} </p>
-                    <p>  Image: {this.state.image_url}</p>
-                    <p> Number of Pages: {this.state.num_pages} </p>
-                        Authors:  {this.state.authors_array.map(author => {
-                        return (
-                            <li>
-                                {author}
-                            </li>
-                        )
-                    })}
-                    <p>  Average Rating: {this.state.average_rating} </p>
-                    <p> Description: {this.state.description} </p>
-                      Book link: {this.state.book_url}
 
-                </div>
+
+
+                            <p>  Title: {this.state.title} </p>
+                            <p>  Image: {this.state.image_url}</p>
+                            <p> Number of Pages: {this.state.num_pages} </p>
+                                 Authors:  {this.state.authors_array.map(author => {
+                                return (
+                                    <li>
+                                        {author}
+                                    </li>
+                                )
+                            })}
+                            <p>  Average Rating: {this.state.average_rating} </p>
+                            <p> Description: {this.state.description} </p>
+                                  Book link: {this.state.book_url}
+
+                        </div>
+                    )}
             </div>
         )
     }
