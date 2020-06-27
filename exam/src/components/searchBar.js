@@ -7,7 +7,10 @@ import {
     Link, Redirect,withRouter
   } from "react-router-dom";
   import { useHistory } from "react-router-dom";
-
+  import { Button } from 'react-bootstrap';
+  import {ButtonSelf} from '../style/Button';
+import "../index.css";
+  
 
 // 
 class SearchBar extends Component {
@@ -56,13 +59,53 @@ class SearchBar extends Component {
         //const { title, author } = this.context
         return (    
             <div>
-               <form>
+               {/* <form onSubmit={this.onSubmit}>
+               
                 <input type="text" onChange={this.handleChange} />
                 {/* value={this.state.query} */}
-                <button onClick={this.onSubmit} > Click me  </button>
+                {/* <button onClick={this.onSubmit} > Click me  </button> */}
+                {/* <Button variant="success">Success</Button>{' '} */} 
 
-               </form>
+                {/* <Button color="secondary">Secondary btn</Button>{' '} 
+                <Button danger>
+                    Submit kardo bhai */}
+                {/* <Button type="submit">Button</Button>{' '} */}
+                {/* </Button>
+                <Button className="secondary">
+                    Submit kardo bhai */}
+                {/* <Button type="submit">Button</Button>{' '} */}
+                {/* </Button> */}
+               
+               {/* </form> */}
                {/* <h3>{this.context.title}</h3> */}
+
+
+               <div className="Apps">
+        <section>
+          <div className="wallpaper">
+            <h1> BookQuest </h1>
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+              eiusmod tempor incididunt ut labore et dolore
+            </p>
+            <div className="form-container">
+              <form>
+                <div className="form-left">
+                  <label for="search">Enter the name of a book</label>
+                  <input type="text" id="search" onChange={this.handleChange} />
+                  <p>Example: Think and grow rich</p>
+                  {/* value={this.state.query} */}
+                </div>
+                <input
+                  type="button"
+                  onClick={this.onSubmit}
+                  value="Get Book Details"
+                />
+              </form>
+            </div>
+          </div>
+        </section>
+      </div>
             </div>
            
         )

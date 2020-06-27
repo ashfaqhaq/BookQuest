@@ -4,12 +4,14 @@ import { useLocation } from 'react-router-dom';
 import PropTypes from 'prop-types'
 import Nav from './searchBar';
 import { withRouter, Router } from 'react-router-dom';
+import { Container } from 'react-bootstrap';
+import './bookDetails.css';
 function strip_html_tags(str) {
     if ((str === null) || (str === ''))
         return false;
     else
         str = str.toString();
-    return str.replace(/<[^>]*>/g, '');
+    return  str.replace(/<[^>]*>/g, ' ') ;
 }
 
 class BookDetails extends Component {
@@ -77,6 +79,8 @@ class BookDetails extends Component {
                 let average_rating = (book.getElementsByTagName('average_rating')[0].textContent)
                 // console.log(average_rating)
                 let description = (book.getElementsByTagName('description')[0].textContent)
+                
+                description = description.replace(/<br ?\/?>/g, "\n");
                 description = strip_html_tags(description);
                 // console.log(description)
 
@@ -131,32 +135,51 @@ class BookDetails extends Component {
 
 
         return (
-            <div>
+            <div id="wallpaper">
                 {!this.state.isLoaded ? (
                     <p> Loading.....</p>
                 ) : (
                         <div>
-                           
+
+                            {/* <div className="container-box"> */}
+                            {/* <Container pt-20> */}
 
 
 
 
 
 
-                            <p>  Title: {this.state.title} </p>
-                            <p>  Image: {this.state.image_url}</p>
-                            <p> Number of Pages: {this.state.num_pages} </p>
-                                 Authors:  {this.state.authors_array.map(author => {
-                                return (
-                                    <li>
-                                        {author}
-                                    </li>
-                                )
-                            })}
-                            <p>  Average Rating: {this.state.average_rating} </p>
+                            <Container className="container-box">
+                            
+                                <h1 id="title">  {this.state.title} </h1>
+                                </Container>
+
+                                <Container className="container-box">
+                                {/* <p>  Image: {this.state.image_url}</p> */}
+                                <div className="name">
+
+                                    <img src={this.state.image_url} className="book-cover" />
+                                    <div className="content-right">
+                                        <p> Average Rating: <span className="data"> {this.state.average_rating} </span></p>
+                                        <p> Number of Pages: <span className="data"> {this.state.num_pages} </span></p>
+
+                                <p> Authors:  {this.state.authors_array.map(author => {
+                                            return (
+                                                    // {author} 
+                                                 <span id="authors"> {author} , </span> 
+                                                
+                                            )
+                                        })}
+                                        </p>
+                                    </div>
+                                </div>
+                            </Container>
+                            <Container className="container-box">
                             <p> Description: {this.state.description} </p>
+                            </Container>
                                   Book link: {this.state.book_url}
 
+                            {/* </Container> */}
                         </div>
                     )}
             </div>

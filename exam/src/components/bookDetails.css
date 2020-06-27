@@ -1,0 +1,59 @@
+/* #wallpaper{
+background-image: url(../jaredd-craig-HH4WBGNyltc-unsplash.jpg);
+margin: 0em;
+} */
+.container-box{
+    /* display: grid; */
+    background-color:whitesmoke;
+    /* align-content: center; */
+    border-radius: 0.9em;
+    margin: 1em;
+    
+}
+.book-cover{
+    width: auto;
+    height: auto;
+    display: flex;
+    margin:1em 0em;
+
+    
+    border-radius: 0.6em;
+}
+.container-box h1 {
+    display: block;
+    font-size: large;
+    text-align: center;
+    padding: 1em;
+    
+} 
+.name {
+    display: flex;
+    text-transform: capitalize;
+
+}
+.content-right p{
+    /* display: block; */
+    padding-bottom: 0;
+    margin:0;
+}
+/* p {
+    display: block;
+} */
+.data{
+    display: block;
+    color:red;
+    /* padding-left: 0.8em; */
+    text-align: left;
+    border-left: 0px;
+    margin: 0px;
+}
+.content-right{
+    padding-left: 0.8em;
+    align-self: center;
+}
+p{
+    white-space: pre-wrap;
+}
+#authors{
+    color: blue;
+}

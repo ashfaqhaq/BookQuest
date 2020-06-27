@@ -1,6 +1,7 @@
 
 import React from 'react';
-
+import 'bootstrap/dist/css/bootstrap.min.css';
+import {Container} from 'react-bootstrap';
 import {
   BrowserRouter as Router,
   Switch,
@@ -107,16 +108,16 @@ class App extends React.Component {
 
       <Router>
         <BookProvider>
-          <div className="App">
-
+          <div className="App mt-3 primary">
+            <Container>
             <Switch>
-
+          
               <Route path="/" exact >
                 <SearchBar />
 
               </Route>
               <Route path="/search/:search_query">
-                <SearchBar />
+                {/* <SearchBar /> */}
                 <BookDetails />
 
               </Route>
@@ -139,9 +140,10 @@ class App extends React.Component {
             {/* </form>   */}
 
 
-
+            </Container>
           </div>
         </BookProvider>
+        
       </Router>
 
     )
@@ -152,15 +154,8 @@ class App extends React.Component {
 }
 
 // export default withRouter(App);
-<<<<<<< HEAD
-export default App;
-
-
-// asexport default withRouter(App);
-=======
 // export default App;
 export default withRouter(App);
->>>>>>> 5fa059b19cb53d8377286633154bf1608dfaa372
 
 
 
