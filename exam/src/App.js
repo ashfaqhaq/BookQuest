@@ -16,6 +16,7 @@ import BookProvider from './contextProvider/bookProvider';
 import SearchBar from './components/searchBar';
 import { BookContext } from './contextProvider/bookProvider';
 import searchBar from './components/searchBar';
+import NavBar from './components/navbar';
 
 
 class App extends React.Component {
@@ -118,6 +119,7 @@ class App extends React.Component {
               </Route>
               <Route path="/search/:search_query">
                 {/* <SearchBar /> */}
+                <NavBar />
                 <BookDetails />
 
               </Route>

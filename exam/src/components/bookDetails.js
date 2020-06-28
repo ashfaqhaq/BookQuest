@@ -6,6 +6,7 @@ import Nav from './searchBar';
 import { withRouter, Router } from 'react-router-dom';
 import { Container } from 'react-bootstrap';
 import './bookDetails.css';
+
 function strip_html_tags(str) {
     if ((str === null) || (str === ''))
         return false;
@@ -148,7 +149,7 @@ class BookDetails extends Component {
 
 
 
-
+                            {/* <NavBar /> */}
                             <Container className="container-box">
                             
                                 <h1 id="title">  {this.state.title} </h1>
@@ -182,6 +183,7 @@ class BookDetails extends Component {
                             {/* </Container> */}
                         </div>
                     )}
+                    
             </div>
         )
     }

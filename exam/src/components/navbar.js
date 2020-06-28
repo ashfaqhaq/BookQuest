@@ -9,17 +9,14 @@ import {
   import { useHistory } from "react-router-dom";
   import { Button } from 'react-bootstrap';
   import {ButtonSelf} from '../style/Button';
-import "../index.css"
-  
-
-// 
-class SearchBar extends Component {
+ 
+class NavBar extends Component {
     state={
         query:''
     }
     
     onSubmit=(e)=>{
-        
+        // e.preventDefault();
         console.log(this.state.query)
        const search_query=this.state.query
         // this.setState({
@@ -80,27 +77,22 @@ class SearchBar extends Component {
                {/* <h3>{this.context.title}</h3> */}
 
 
-               <div className="Apps">
+               <div className="SApps">
         <section>
-          <div className="wallpaper">
-            <h1> BookQuest </h1>
-            <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-              eiusmod tempor incididunt ut labore et dolore
-            </p>
-            <div className="form-container">
-              <form onSubmit={this.onSubmit}>
-                <div className="form-left">
-                  <label for="search">Enter the name of a book</label>
-                  <input type="text" id="search" onChange={this.handleChange} />
+          <div className="Swallpaper">
+           
+            <div className="Sform-container">
+              <form>
+                <div className="Sform-left">
+                  <label for="Ssearch">Enter the name of another book</label>
+                  <input type="text" id="Ssearch" onChange={this.handleChange} />
                   <p>Example: Think and grow rich</p>
                   {/* value={this.state.query} */}
                 </div>
-                <input
-                  type="button"
-                  onClick={this.onSubmit}
-                  value="Get Book Details"
-                />
+                <button
+                  onClick={this.onSubmit}>
+                  Get Book Details
+                  </button>
               </form>
             </div>
           </div>
@@ -112,6 +104,6 @@ class SearchBar extends Component {
     }
 }
 
-SearchBar.contextType = BookContext
+NavBar.contextType = BookContext
 
-export default withRouter(SearchBar);
+export default withRouter(NavBar);
