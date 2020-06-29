@@ -1,8 +1,30 @@
-#wallpaper{
-background-image: url(../jaredd-craig-HH4WBGNyltc-unsplash.jpg);
-margin: 0em;
+/* #wallpaper::after{
+/* background-image:  */
+/* margin: 0em; */
 
-}
+/* } */
+#wallpaper::after {
+    content: "";
+    background: url(../jaredd-craig-HH4WBGNyltc-unsplash.jpg)
+      no-repeat center center/contain;
+    position: fixed;
+    /* position: relative;
+    top: 0; */
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    /* mix-blend-mode: darken; */
+    background-size: cover;
+    margin: 0px;
+    opacity: 0.5;
+    /* padding: 0px; */
+    border: 0px;
+    height: 100vh;
+    background-position-x: 20%;
+    background-position-y: 35%;
+  }
 .container-box{
     /* display: grid; */
     background-color:whitesmoke;

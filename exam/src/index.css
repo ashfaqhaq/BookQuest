@@ -89,7 +89,7 @@ input[type="button"]:hover {
   background-color: rgb(154, 84, 211);
 }
 
-.wallpaper:after {
+.wallpaper::after {
   content: "";
   background: url("https://images.unsplash.com/photo-1561627368-fdc44e974e31?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1534&q=80")
     no-repeat center center/contain;

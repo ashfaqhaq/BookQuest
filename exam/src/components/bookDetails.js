@@ -120,7 +120,11 @@ class BookDetails extends Component {
                 console.log(similar_books_data)
 
                 // console.log(book_url)
+                let random = Math.random() * 10;
+                const shuffled = similar_books_data.sort(() => 0.5 - Math.random());
 
+                // Get sub-array of first n elements after shuffled
+                let selected = shuffled.slice(0, 5);
 
                 this.setState({
                     //items:
@@ -133,7 +137,8 @@ class BookDetails extends Component {
                     book_url,
                     similar_books_author,
                     similar_books_title,
-                    similar_books_data,
+                    // similar_books_data: similar_books_data.slice((Math.floor(Math.random)*10),5),
+                    similar_books_data:selected,
                     isLoaded: true,
                 })
                 console.timeEnd('test');
@@ -218,7 +223,7 @@ class BookDetails extends Component {
 
 
                             <div>
-                            {/* <button class="btn btn-primary" 
+                                {/* <button class="btn btn-primary" 
                             type="button" data-toggle="collapse" 
                             data-target="#collapseExample" 
                             aria-expanded="false" 
@@ -231,53 +236,58 @@ class BookDetails extends Component {
 
 
                                       Similar Books are : {this.state.similar_books_data.map(data => {
-                                        return (
+                                    return (
                                         // <div class="collapse" id="collapseExample">
-                                    // {/* <div class="accordion" id="accordionExample"> */}
-                                    
-                                        
-// {/* 
-                                            // <div class="card">
-                                            //     <div class="card-header" id="headingOne">
-                                            //         <h2 class="mb-0">
-                                            //             <button class="btn btn-link" type="button" data-toggle="collapse" data-target={'#'+{data}} aria-expanded="true" aria-controls={data}>
-                                            //                 Collapsible Group Item        </button>
-                                            //         </h2>
-                                            //     </div>
+                                        // {/* <div class="accordion" id="accordionExample"> */}
 
-                                            //     <div id={data} class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
-                                            //         <div class="card-body">
-                                            //             {data}
-                                            //      </div>
-                                            //     </div>
-                                            // </div>
-                                             <div className="container-box"> 
+
+                                        // {/* 
+                                        // <div class="card">
+                                        //     <div class="card-header" id="headingOne">
+                                        //         <h2 class="mb-0">
+                                        //             <button class="btn btn-link" type="button" data-toggle="collapse" data-target={'#'+{data}} aria-expanded="true" aria-controls={data}>
+                                        //                 Collapsible Group Item        </button>
+                                        //         </h2>
+                                        //     </div>
+
+                                        //     <div id={data} class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
+                                        //         <div class="card-body">
+                                        //             {data}
+                                        //      </div>
+                                        //     </div>
+                                        // </div>
+                                        <div className="container-box">
                                             <div class="card card-body pl-5">
+                                                <button onClick={() => {
+                                                    navigator.clipboard.writeText(data);
+                                                    console.log('copied data ')
+                                                }}> copy to clipboard </button>
                                                 <li>{data}</li>
+
                                             </div>
-                                              </div>
-                                            // </div>
-                                        )
-                                    })}
-                                    </div>
+                                        </div>
+                                        // </div>
+                                    )
+                                })}
+                            </div>
 
-                                    
-                                
-                                {/* </Container> */} 
-                                
-                                  Book link: {this.state.book_url}
 
-                                {/* </Container> */}
-                                
-                                
-                                 
-                                  </div>
+
+                            {/* </Container> */}
+                            
+
+
+                            {/* </Container> */}
+
+
+
+                        </div>
                     )}
-    
-    </div>
-                        
-                    )
-                }
+
+            </div>
+
+        )
+    }
 }
 
 export default withRouter(BookDetails)

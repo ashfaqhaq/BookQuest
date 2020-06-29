@@ -77,9 +77,9 @@ class NavBar extends Component {
                {/* <h3>{this.context.title}</h3> */}
 
 
-               <div className="SApps">
+               {/* <div className="SApps"> */}
         <section>
-          <div className="Swallpaper">
+          {/* <div className="Swallpaper"> */}
            
             <div className="Sform-container">
               <form>
@@ -95,9 +95,9 @@ class NavBar extends Component {
                   </button>
               </form>
             </div>
-          </div>
+          {/* </div> */}
         </section>
-      </div>
+      {/* </div> */}
             </div>
            
         )
