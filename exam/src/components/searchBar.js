@@ -1,14 +1,7 @@
-import React, { Component, useContext, useState } from 'react'
+import React, { Component} from 'react'
 import { BookContext } from '../contextProvider/bookProvider'
-import {
-    BrowserRouter as Router,
-    Switch,
-    Route,
-    Link, Redirect,withRouter
-  } from "react-router-dom";
-  import { useHistory } from "react-router-dom";
-  import { Button } from 'react-bootstrap';
-  import {ButtonSelf} from '../style/Button';
+import {    withRouter  } from "react-router-dom";
+  
 import "../index.css"
   
 

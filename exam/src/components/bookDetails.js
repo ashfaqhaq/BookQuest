@@ -1,9 +1,6 @@
-import React, { useState, Component } from 'react';
+import React, { Component } from 'react';
 import { BookContext } from '../contextProvider/bookProvider'
-import { useLocation } from 'react-router-dom';
-import PropTypes from 'prop-types'
-import Nav from './searchBar';
-import { withRouter, Router } from 'react-router-dom';
+import { withRouter } from 'react-router-dom';
 import { Container } from 'react-bootstrap';
 import './bookDetails.css';
 import NavBar from './navbar'
@@ -120,7 +117,6 @@ class BookDetails extends Component {
                 console.log(similar_books_data)
 
                 // console.log(book_url)
-                let random = Math.random() * 10;
                 const shuffled = similar_books_data.sort(() => 0.5 - Math.random());
 
                 // Get sub-array of first n elements after shuffled
@@ -169,7 +165,6 @@ class BookDetails extends Component {
 
     render() {
 
-        const { search, author } = this.context
 
 
 
@@ -199,7 +194,7 @@ class BookDetails extends Component {
                                 {/* <p>  Image: {this.state.image_url}</p> */}
                                 <div className="name">
 
-                                    <img src={this.state.image_url} className="book-cover" />
+                                    <img src={this.state.image_url} className="book-cover" alt={this.state.title} />
                                     <div className="content-right">
                                         <p> Average Rating: <span className="data"> {this.state.average_rating} </span></p>
                                         <p> Number of Pages: <span className="data"> {this.state.num_pages} </span></p>

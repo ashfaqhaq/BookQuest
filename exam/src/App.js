@@ -1,22 +1,14 @@
 
 import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import {Container} from 'react-bootstrap';
 import {
   BrowserRouter as Router,
   Switch,
-  Route,
-  Link, Redirect
-} from "react-router-dom";
-import { NavLink } from 'react-router-dom';
-import { useHistory } from "react-router-dom";
+  Route} from "react-router-dom";
 import { withRouter } from 'react-router-dom';
 import BookDetails from './components/bookDetails';
 import BookProvider from './contextProvider/bookProvider';
 import SearchBar from './components/searchBar';
-import { BookContext } from './contextProvider/bookProvider';
-import searchBar from './components/searchBar';
-import NavBar from './components/navbar';
 // import Components from './components/bookDetails';
 
 
@@ -29,31 +21,31 @@ class App extends React.Component {
 
   /**
    * constructor
-   *
-   * @object  @props  parent props
-   * @object  @state  component state
-   */
-  constructor(props) {
+  //  *
+  //  * @object  @props  parent props
+  //  * @object  @state  component state
+  //  */
+  // constructor(props) {
 
-    super(props);
-    // static contextType = BookContext;
-    // this.state = {
-    //   // items: [],
-    //   value: props.value,
-    //   temp: '',
-    //   search: '',
-    //   title: '',
-    //   image_url: '',
-    //   num_pages: '',
-    //   authors_array: [],
-    //   description: '',
-    //   average_rating: '',
-    //   book_url: '',
+  //   super(props);
+  //   // static contextType = BookContext;
+  //   // this.state = {
+  //   //   // items: [],
+  //   //   value: props.value,
+  //   //   temp: '',
+  //   //   search: '',
+  //   //   title: '',
+  //   //   image_url: '',
+  //   //   num_pages: '',
+  //   //   authors_array: [],
+  //   //   description: '',
+  //   //   average_rating: '',
+  //   //   book_url: '',
 
-    //   isLoaded: false
-    // }
+  //   //   isLoaded: false
+  //   // }
 
-  }
+  // }
   // redirectToHome = (e) => {
   //   //  e.preventDefault()
   //   // this.setState({
