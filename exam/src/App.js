@@ -17,6 +17,7 @@ import SearchBar from './components/searchBar';
 import { BookContext } from './contextProvider/bookProvider';
 import searchBar from './components/searchBar';
 import NavBar from './components/navbar';
+// import Components from './components/bookDetails';
 
 
 class App extends React.Component {
@@ -110,7 +111,7 @@ class App extends React.Component {
       <Router>
         <BookProvider>
           <div className="App mt-3 primary">
-            <Container>
+            {/* <Container> */}
             <Switch>
           
               <Route path="/" exact >
@@ -119,9 +120,11 @@ class App extends React.Component {
               </Route>
               <Route path="/search/:search_query">
                 {/* <SearchBar /> */}
-                <NavBar />
+                {/* <Wallpapers> */}
+                
+                {/* <Components /> */}
                 <BookDetails />
-
+                {/* </Wallpapers> */}
               </Route>
             </Switch>
             {/* <Nav />
@@ -142,7 +145,7 @@ class App extends React.Component {
             {/* </form>   */}
 
 
-            </Container>
+            {/* </Container> */}
           </div>
         </BookProvider>
         

@@ -6,13 +6,14 @@ import Nav from './searchBar';
 import { withRouter, Router } from 'react-router-dom';
 import { Container } from 'react-bootstrap';
 import './bookDetails.css';
+import NavBar from './navbar'
 
 function strip_html_tags(str) {
     if ((str === null) || (str === ''))
         return false;
     else
         str = str.toString();
-    return  str.replace(/<[^>]*>/g, ' ') ;
+    return str.replace(/<[^>]*>/g, ' ');
 }
 
 class BookDetails extends Component {
@@ -80,7 +81,7 @@ class BookDetails extends Component {
                 let average_rating = (book.getElementsByTagName('average_rating')[0].textContent)
                 // console.log(average_rating)
                 let description = (book.getElementsByTagName('description')[0].textContent)
-                
+
                 description = description.replace(/<br ?\/?>/g, "\n");
                 description = strip_html_tags(description);
                 // console.log(description)
@@ -89,6 +90,35 @@ class BookDetails extends Component {
                 // console.log(work.getElementsByTagName("rating_dist")[0].textContent)
 
                 let book_url = (book.getElementsByTagName('url')[0].textContent)
+                let similar_books = book.getElementsByTagName('similar_books')[0]
+
+                let similar_books_title = []
+                let similar_books_author = []
+                let similar_books_data = []
+                let similar_child = similar_books.getElementsByTagName('book');
+
+                //    console.log(similar_books)
+
+                // let similar_child= book.getElementsByTagName('similar_books')[0].textContent
+                for (let i = 0; i < similar_child.length; i++) {
+
+                    let similar_titles = similar_books.getElementsByTagName('title')[i].textContent;
+                    let authors = similar_books.getElementsByTagName('authors')[i];
+                    let author_list = authors.getElementsByTagName('author')[0];
+                    let first_author = author_list.getElementsByTagName('name')[0].textContent;
+                    let data = (similar_titles + ' by ' + first_author)
+                    console.log(data)
+                    similar_books_author.push(first_author)
+                    similar_books_title.push(similar_titles)
+                    similar_books_data.push(data)
+                    // authors_array.push(name) 
+
+
+                }
+                console.log(similar_books_author)
+                console.log(similar_books_title)
+                console.log(similar_books_data)
+
                 // console.log(book_url)
 
 
@@ -101,7 +131,9 @@ class BookDetails extends Component {
                     description,
                     average_rating,
                     book_url,
-
+                    similar_books_author,
+                    similar_books_title,
+                    similar_books_data,
                     isLoaded: true,
                 })
                 console.timeEnd('test');
@@ -123,7 +155,9 @@ class BookDetails extends Component {
         description: '',
         average_rating: '',
         book_url: '',
-
+        similar_books_title: [],
+        similar_books_author: [],
+        similar_books_data: [],
         isLoaded: false
     }
 
@@ -137,6 +171,7 @@ class BookDetails extends Component {
 
         return (
             <div id="wallpaper">
+                <NavBar />
                 {!this.state.isLoaded ? (
                     <p> Loading.....</p>
                 ) : (
@@ -151,11 +186,11 @@ class BookDetails extends Component {
 
                             {/* <NavBar /> */}
                             <Container className="container-box">
-                            
-                                <h1 id="title">  {this.state.title} </h1>
-                                </Container>
 
-                                <Container className="container-box">
+                                <h1 id="title">  {this.state.title} </h1>
+                            </Container>
+
+                            <Container className="container-box">
                                 {/* <p>  Image: {this.state.image_url}</p> */}
                                 <div className="name">
 
@@ -164,11 +199,11 @@ class BookDetails extends Component {
                                         <p> Average Rating: <span className="data"> {this.state.average_rating} </span></p>
                                         <p> Number of Pages: <span className="data"> {this.state.num_pages} </span></p>
 
-                                <p> Authors:  {this.state.authors_array.map(author => {
+                                        <p> Authors:  {this.state.authors_array.map(author => {
                                             return (
-                                                    // {author} 
-                                                 <span id="authors"> {author} , </span> 
-                                                
+                                                // {author} 
+                                                <span id="authors"> {author} , </span>
+
                                             )
                                         })}
                                         </p>
@@ -176,17 +211,73 @@ class BookDetails extends Component {
                                 </div>
                             </Container>
                             <Container className="container-box">
-                            <p> Description: {this.state.description} </p>
+                                <p> Description: {this.state.description} </p>
                             </Container>
+                            {/* <Container className="container-box"> */}
+
+
+
+                            <div>
+                            {/* <button class="btn btn-primary" 
+                            type="button" data-toggle="collapse" 
+                            data-target="#collapseExample" 
+                            aria-expanded="false" 
+                            aria-controls="collapseExample">
+                                    Button with data-target
+                                      </button> */}
+
+
+
+
+
+                                      Similar Books are : {this.state.similar_books_data.map(data => {
+                                        return (
+                                        // <div class="collapse" id="collapseExample">
+                                    // {/* <div class="accordion" id="accordionExample"> */}
+                                    
+                                        
+// {/* 
+                                            // <div class="card">
+                                            //     <div class="card-header" id="headingOne">
+                                            //         <h2 class="mb-0">
+                                            //             <button class="btn btn-link" type="button" data-toggle="collapse" data-target={'#'+{data}} aria-expanded="true" aria-controls={data}>
+                                            //                 Collapsible Group Item        </button>
+                                            //         </h2>
+                                            //     </div>
+
+                                            //     <div id={data} class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
+                                            //         <div class="card-body">
+                                            //             {data}
+                                            //      </div>
+                                            //     </div>
+                                            // </div>
+                                             <div className="container-box"> 
+                                            <div class="card card-body pl-5">
+                                                <li>{data}</li>
+                                            </div>
+                                              </div>
+                                            // </div>
+                                        )
+                                    })}
+                                    </div>
+
+                                    
+                                
+                                {/* </Container> */} 
+                                
                                   Book link: {this.state.book_url}
 
-                            {/* </Container> */}
-                        </div>
+                                {/* </Container> */}
+                                
+                                
+                                 
+                                  </div>
                     )}
-                    
-            </div>
-        )
-    }
+    
+    </div>
+                        
+                    )
+                }
 }
 
 export default withRouter(BookDetails)
