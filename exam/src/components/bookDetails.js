@@ -254,7 +254,9 @@ class BookDetails extends Component {
                                         <div className="container-box">
                                             <div class="card card-body pl-5">
                                                 <button onClick={() => {
-                                                    navigator.clipboard.writeText(data);
+                                                     var n = data.indexOf("by");
+                                                     var new_title=data.slice(0,n)
+                                                    navigator.clipboard.writeText(new_title);
                                                     console.log('copied data ')
                                                 }}> copy to clipboard </button>
                                                 <li>{data}</li>
