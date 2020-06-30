@@ -75,11 +75,10 @@ class SearchBar extends Component {
 
                <div className="Apps">
         <section>
-          <div className="wallpaper">
+          <div className="wallpaper pt-3">
             <h1> BookQuest </h1>
             <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-              eiusmod tempor incididunt ut labore et dolore
+              Explore the richness  of books , sea
             </p>
             <div className="form-container">
               <form onSubmit={this.onSubmit}>

@@ -4,7 +4,7 @@ import {
     withRouter
   } from "react-router-dom";
  
-class NavBar extends Component {
+ class NavBar extends Component {
     state={
         query:''
     }
@@ -49,7 +49,7 @@ class NavBar extends Component {
 
         //const { title, author } = this.context
         return (    
-            <div>
+            <div class="container">
                {/* <form onSubmit={this.onSubmit}>
                
                 <input type="text" onChange={this.handleChange} />
@@ -83,7 +83,7 @@ class NavBar extends Component {
                   <p>Example: Think and grow rich</p>
                   {/* value={this.state.query} */}
                 </div>
-                <button
+                <button className="btn btn-primary"
                   onClick={this.onSubmit}>
                   Get Book Details
                   </button>

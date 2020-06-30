@@ -4,7 +4,8 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import {
   BrowserRouter as Router,
   Switch,
-  Route} from "react-router-dom";
+  Route
+} from "react-router-dom";
 import { withRouter } from 'react-router-dom';
 import BookDetails from './components/bookDetails';
 import BookProvider from './contextProvider/bookProvider';
@@ -15,7 +16,7 @@ import SearchBar from './components/searchBar';
 class App extends React.Component {
 
 
-  
+
 
 
 
@@ -102,10 +103,16 @@ class App extends React.Component {
 
       <Router>
         <BookProvider>
-          <div className="App mt-3 primary">
+          <div className="App primary">
+            <nav class="navbar navbar-light bg-light">
+              <a class="navbar-brand" href="/">Home</a>
+            </nav>
+
+            
+              
             {/* <Container> */}
             <Switch>
-          
+
               <Route path="/" exact >
                 <SearchBar />
 
@@ -113,7 +120,7 @@ class App extends React.Component {
               <Route path="/search/:search_query">
                 {/* <SearchBar /> */}
                 {/* <Wallpapers> */}
-                
+
                 {/* <Components /> */}
                 <BookDetails />
                 {/* </Wallpapers> */}
@@ -140,7 +147,7 @@ class App extends React.Component {
             {/* </Container> */}
           </div>
         </BookProvider>
-        
+
       </Router>
 
     )

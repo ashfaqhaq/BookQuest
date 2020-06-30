@@ -25,7 +25,12 @@ h1 {
 
 .wallpaper p {
   font-family: "Kaushan Script", cursive;
-  text-align: center;
+  text-align: left;
+  padding-left: 1em;
+  padding-right: 1em;
+  padding-bottom: 1em;
+  padding-left: 2.5em;
+  /* font-size: 2em; */
   /* padding: 1em; */
   font-size: 1em;
   margin-bottom: 4em;

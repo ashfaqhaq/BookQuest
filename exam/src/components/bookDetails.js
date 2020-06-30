@@ -87,6 +87,7 @@ class BookDetails extends Component {
                 // console.log(work.getElementsByTagName("rating_dist")[0].textContent)
 
                 let book_url = (book.getElementsByTagName('url')[0].textContent)
+                let reviews_widget_var = (book.getElementsByTagName('reviews_widget')[0].textContent)
                 let similar_books = book.getElementsByTagName('similar_books')[0]
 
                 let similar_books_title = []
@@ -112,9 +113,14 @@ class BookDetails extends Component {
 
 
                 }
-                console.log(similar_books_author)
-                console.log(similar_books_title)
-                console.log(similar_books_data)
+
+                // console.log(similar_books_author)
+                // console.log(similar_books_title)
+                // console.log(similar_books_data)
+                console.log(reviews_widget_var)
+                var startDiv= reviews_widget_var.indexOf("<div");
+                // var end= reviews_widget.indexOf()
+                var reviews_widget = reviews_widget_var.slice(startDiv)
 
                 // console.log(book_url)
                 const shuffled = similar_books_data.sort(() => 0.5 - Math.random());
@@ -134,7 +140,8 @@ class BookDetails extends Component {
                     similar_books_author,
                     similar_books_title,
                     // similar_books_data: similar_books_data.slice((Math.floor(Math.random)*10),5),
-                    similar_books_data:selected,
+                    similar_books_data: selected,
+                    reviews_widget,
                     isLoaded: true,
                 })
                 console.timeEnd('test');
@@ -159,6 +166,8 @@ class BookDetails extends Component {
         similar_books_title: [],
         similar_books_author: [],
         similar_books_data: [],
+        reviews_widget: '',
+
         isLoaded: false
     }
 
@@ -176,14 +185,24 @@ class BookDetails extends Component {
                     <p> Loading.....</p>
                 ) : (
                         <div>
-
                             {/* <div className="container-box"> */}
                             {/* <Container pt-20> */}
+                            {/* {this.state.reviews_widget} */}
+                            {/* <div>{this.state.reviews_widget}</div> */}
+                            {/* console.log({this.state.reviews_widget}) */}
 
 
 
-
-
+{/* 
+                            <div id="goodreads-widget">
+                                <div id="gr_header"><h1><a rel="nofollow" href="https://www.goodreads.com/book/show/30186948-think-and-grow-rich">Think and Grow Rich Reviews</a></h1></div>
+                                <iframe id="the_iframe" src="https://www.goodreads.com/api/reviews_widget_iframe?did=DEVELOPER_ID&amp;format=html&amp;isbn=1788441028&amp;links=660&amp;min_rating=&amp;review_back=fff&amp;stars=000&amp;text=000" width="565" height="400" frameborder="0"></iframe>
+                                <div id="gr_footer">
+                                    <a class="gr_branding" target="_blank" rel="nofollow noopener noreferrer" href="https://www.goodreads.com/book/show/30186948-think-and-grow-rich?utm_medium=api&amp;utm_source=reviews_widget">Reviews from Goodreads.com</a>
+                                </div>
+                            </div> */}
+                            {/* {this.state.reviews_widget} */}
+                            {/* console.log({this.reviews_widget) */}
                             {/* <NavBar /> */}
                             <Container className="container-box">
 
@@ -210,7 +229,7 @@ class BookDetails extends Component {
                                     </div>
                                 </div>
                             </Container>
-                            <Container className="container-box">
+                            <Container className="container-box desc">
                                 <p> Description: {this.state.description} </p>
                             </Container>
                             {/* <Container className="container-box"> */}
@@ -227,10 +246,13 @@ class BookDetails extends Component {
                                       </button> */}
 
 
+                                  {/* <Container>
+                                  <div dangerouslySetInnerHTML={{__html: this.state.reviews_widget}} />
 
+                                      </Container>     */}
 
-
-                                      Similar Books are : {this.state.similar_books_data.map(data => {
+                                <Container className="container-box pt-2 pb-2">
+                                    People also searched for : {this.state.similar_books_data.map(data => {
                                     return (
                                         // <div class="collapse" id="collapseExample">
                                         // {/* <div class="accordion" id="accordionExample"> */}
@@ -252,26 +274,30 @@ class BookDetails extends Component {
                                         //     </div>
                                         // </div>
                                         <div className="container-box">
-                                            <div class="card card-body pl-5">
-                                                <button onClick={() => {
-                                                     var n = data.indexOf("by");
-                                                     var new_title=data.slice(0,n)
-                                                    navigator.clipboard.writeText(new_title);
-                                                    console.log('copied data ')
-                                                }}> copy to clipboard </button>
-                                                <li>{data}</li>
+                                            <div class="card card-body">
+
+                                                <span>{data}
+                                                    <button onClick={() => {
+                                                        var n = data.indexOf("by");
+                                                        var new_title = data.slice(0, n)
+                                                        navigator.clipboard.writeText(new_title);
+                                                        console.log('copied data ')
+                                                    }}> copy to clipboard </button>
+                                                </span>
+
 
                                             </div>
                                         </div>
                                         // </div>
                                     )
                                 })}
+                                </Container>
                             </div>
 
 
 
                             {/* </Container> */}
-                            
+
 
 
                             {/* </Container> */}
