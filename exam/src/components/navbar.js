@@ -13,12 +13,14 @@ import {
         // e.preventDefault();
         console.log(this.state.query)
        const search_query=this.state.query
+       
         // this.setState({
         //     query:this.state.query
         // })
         this.context.update({ search: this.state.query })
         // <Redirect{} />
         const { history } = this.props;
+       
            if (history) this.props.history.push(`/search/:${search_query}`)
         // if (history) history.push({
         //     pathname: '/search',
@@ -87,6 +89,7 @@ import {
                   onClick={this.onSubmit}>
                   Get Book Details
                   </button>
+                 
               </form>
             </div>
           {/* </div> */}

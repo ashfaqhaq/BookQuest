@@ -2,7 +2,7 @@
 import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import {
-  BrowserRouter as Router,
+ BrowserRouter as Router,
   Switch,
   Route
 } from "react-router-dom";
@@ -11,8 +11,9 @@ import BookDetails from './components/bookDetails';
 import BookProvider from './contextProvider/bookProvider';
 import SearchBar from './components/searchBar';
 // import Components from './components/bookDetails';
+// import { BrowserHistory } from 'react-history';
 
-
+// const BrowserHistory = require('react-router/lib/BrowserHistory').default;
 class App extends React.Component {
 
 
@@ -98,15 +99,18 @@ class App extends React.Component {
     // if (!isLoaded)
     //     return <div>Loading...</div>;
 
-
+    // const { history } = this.props;
     return (
-
-      <Router>
+     
+      <Router >
         <BookProvider>
           <div className="App primary">
             <nav class="navbar navbar-light bg-light">
               <a class="navbar-brand" href="/">Home</a>
             </nav>
+          
+    {/* <div>{history}</div> */}
+
 
             
               

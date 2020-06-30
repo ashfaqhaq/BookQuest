@@ -21,6 +21,7 @@ class SearchBar extends Component {
         this.context.update({ search: this.state.query })
         // <Redirect{} />
         const { history } = this.props;
+        console.log(history)
            if (history) this.props.history.push(`/search/:${search_query}`)
         // if (history) history.push({
         //     pathname: '/search',

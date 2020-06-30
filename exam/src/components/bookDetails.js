@@ -4,7 +4,11 @@ import { withRouter } from 'react-router-dom';
 import { Container } from 'react-bootstrap';
 import './bookDetails.css';
 import NavBar from './navbar'
+// import { NavigationActions, StackActions } from 'react-navigation';
+// import { BrowserHistory } from 'react-history
+// import { createStackNavigator  } from "react-navigation-stack";
 
+ 
 function strip_html_tags(str) {
     if ((str === null) || (str === ''))
         return false;
@@ -14,6 +18,7 @@ function strip_html_tags(str) {
 }
 
 class BookDetails extends Component {
+    
     // static propTypes = {
     //     match: PropTypes.object.isRequired,
     //     location: PropTypes.object.isRequired,
@@ -22,7 +27,9 @@ class BookDetails extends Component {
     static contextType = BookContext;
     constructor(props) {
         super(props)
-
+        // console.log(this.props)
+         // const BrowserHistory = require('react-router/lib/BrowserHistory').default;
+        // console.log(this.props.history)
         // const { match, location, history } = this.props
         // console.log(location)
         // console.log(this.getParams)
@@ -30,7 +37,7 @@ class BookDetails extends Component {
         //    let search= 
         //const search=id;
         // console.log(this.context.search);
-        // console.log(this.props)
+        console.log(this.props)
         let search = (this.props.match.params.search_query)
         //    const { search } = this.context
         // console.log(search,'is the book')
@@ -147,6 +154,7 @@ class BookDetails extends Component {
                 console.timeEnd('test');
 
             })
+           
 
 
     }
@@ -171,13 +179,13 @@ class BookDetails extends Component {
         isLoaded: false
     }
 
-
+   
     render() {
 
 
 
-
-
+        // const popAction = createStackNavigator.pop({n: 1});
+        
         return (
             <div id="wallpaper">
                 <NavBar />
@@ -185,6 +193,17 @@ class BookDetails extends Component {
                     <p> Loading.....</p>
                 ) : (
                         <div>
+                            
+                            <button onClick={()=>{this.props.history.goBack()
+                            this.props.history.goBack()
+                            // e.preventDefault();
+                            }}> Back </button>
+                            {/* <button onClick={()=>this.props.navigation.dispatch(popAction)}>
+                            back
+                            </button> */}
+ {/* <div><button onClick={BrowserHistory.goBack}>Go Back</button></div> */}
+
+
                             {/* <div className="container-box"> */}
                             {/* <Container pt-20> */}
                             {/* {this.state.reviews_widget} */}
