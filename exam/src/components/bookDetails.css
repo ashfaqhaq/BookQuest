@@ -3,6 +3,8 @@
 /* margin: 0em; */
 
 /* } */
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Fauna+One&display=swap');
 #goodreads-widget {
     font-family: georgia, serif;
     padding: 18px 0;
@@ -59,6 +61,8 @@
     background-position-y: 35%;
   }
 .container-box{
+  font-family: 'Cinzel', serif;
+  font-weight: bold;
     /* display: grid; */
     background-color:whitesmoke;
     /* align-content: center; */
@@ -79,13 +83,17 @@ box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     border-radius: 0.6em;
 }
 .desc{
+  font-family: 'Fauna One', serif;
+    font-weight: 400;
     border-radius: 0em;
+    font-size: 1em;
 }
 .container-box h1 {
     display: block;
     font-size: large;
     text-align: center;
     padding: 1em;
+    font-weight: 700;
     
 } 
 .name {
@@ -102,6 +110,7 @@ box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     display: block;
 } */
 .data{
+  font-family: 'Fauna One', serif;
     display: block;
     color:red;
     /* padding-left: 0.8em; */
@@ -117,5 +126,16 @@ p{
     white-space: pre-wrap;
 }
 #authors{
+  font-family: 'Fauna One', serif;
     color: blue;
 }
+.card-body{
+  font-family: 'Fauna One', serif;
+    font-weight: 400;
+}
+button {
+  width: fit-content;
+}
+/* #back{
+  visibility: hidden;
+} */

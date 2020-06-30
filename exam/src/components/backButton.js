@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { BookContext } from '../contextProvider/bookProvider'
 import { withRouter } from 'react-router-dom';
 import { Container } from 'react-bootstrap';
-import './bookDetails.css';
+// import './bookDetails.css';
 // import { NavigationActions, StackActions } from 'react-navigation';
 // import { BrowserHistory } from 'react-history
 // import { createStackNavigator  } from "react-navigation-stack";
@@ -192,7 +192,7 @@ class BackButton extends Component {
                     <p> Loading.....</p>
                 ) : (
                         <div>
-                              <button onClick={()=>{this.props.history.goBack()
+                              <button id="back" onClick={()=>{this.props.history.goBack()
                             this.props.history.goBack()
                             // e.preventDefault();
                             }}> Back </button>

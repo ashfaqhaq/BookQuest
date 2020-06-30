@@ -13,9 +13,12 @@ code {
 }
 
 @import url("https://fonts.googleapis.com/css2?family=Kaushan+Script&display=swap");
-
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Fauna+One&display=swap');
 h1 {
-  font-family: "Kaushan Script", cursive;
+  /* font-family: "Kaushan Script", cursive; */
+  font-family: 'Cinzel', serif;
+  font-weight: bold;
   text-align: center;
   padding-right: 1em;
   padding-bottom: 1em;
@@ -24,7 +27,8 @@ h1 {
 }
 
 .wallpaper p {
-  font-family: "Kaushan Script", cursive;
+  /* font-family: "Kaushan Script", cursive; */
+  font-family: 'Fauna One', serif;
   text-align: left;
   padding-left: 1em;
   padding-right: 1em;
@@ -49,6 +53,8 @@ h1 {
   background: rgb(250, 234, 234);
 }
 label {
+  font-family: 'Fauna One', serif;
+
   color: #262e14ad;
   font-weight: bold;
   display: block;

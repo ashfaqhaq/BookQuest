@@ -88,7 +88,7 @@ import {
                   <p>Example: Think and grow rich</p>
                   {/* value={this.state.query} */}
                 </div>
-                <button className="btn btn-primary"
+                <button className="btn btn-primary  btn-sm mx-auto"
                   onClick={this.onSubmit}>
                   Get Book Details
                   </button>
