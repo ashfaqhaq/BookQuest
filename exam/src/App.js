@@ -10,6 +10,10 @@ import { withRouter } from 'react-router-dom';
 import BookDetails from './components/bookDetails';
 import BookProvider from './contextProvider/bookProvider';
 import SearchBar from './components/searchBar';
+
+import NavBar from './components/navbar';
+import BackButton from './components/backButton';
+
 // import Components from './components/bookDetails';
 // import { BrowserHistory } from 'react-history';
 
@@ -124,9 +128,19 @@ class App extends React.Component {
               <Route path="/search/:search_query">
                 {/* <SearchBar /> */}
                 {/* <Wallpapers> */}
-
+                <NavBar />
                 {/* <Components /> */}
                 <BookDetails />
+                {/* </Wallpapers> */}
+              </Route>
+              <Route path="/find/:search_query">
+                {/* <SearchBar /> */}
+                {/* <Wallpapers> */}
+                <NavBar />
+                <BackButton />
+                {/* <BackButton /> */}
+                {/* <Components /> */}
+               
                 {/* </Wallpapers> */}
               </Route>
             </Switch>

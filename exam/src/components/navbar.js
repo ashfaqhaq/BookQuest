@@ -1,9 +1,10 @@
 import React, { Component } from 'react'
 import { BookContext } from '../contextProvider/bookProvider'
+// import BackButton from './backButton';
 import {
     withRouter
   } from "react-router-dom";
- 
+  
  class NavBar extends Component {
     state={
         query:''
@@ -21,7 +22,7 @@ import {
         // <Redirect{} />
         const { history } = this.props;
        
-           if (history) this.props.history.push(`/search/:${search_query}`)
+           if (history) this.props.history.push(`/find/:${search_query}`)
         // if (history) history.push({
         //     pathname: '/search',
         //     customNameData: search_query,
@@ -52,6 +53,8 @@ import {
         //const { title, author } = this.context
         return (    
             <div class="container">
+             
+               
                {/* <form onSubmit={this.onSubmit}>
                
                 <input type="text" onChange={this.handleChange} />

@@ -3,7 +3,6 @@ import { BookContext } from '../contextProvider/bookProvider'
 import { withRouter } from 'react-router-dom';
 import { Container } from 'react-bootstrap';
 import './bookDetails.css';
-// import NavBar from './navbar'
 // import { NavigationActions, StackActions } from 'react-navigation';
 // import { BrowserHistory } from 'react-history
 // import { createStackNavigator  } from "react-navigation-stack";
@@ -17,7 +16,7 @@ function strip_html_tags(str) {
     return str.replace(/<[^>]*>/g, ' ');
 }
 
-class BookDetails extends Component {
+class BackButton extends Component {
     
     // static propTypes = {
     //     match: PropTypes.object.isRequired,
@@ -193,7 +192,10 @@ class BookDetails extends Component {
                     <p> Loading.....</p>
                 ) : (
                         <div>
-                            
+                              <button onClick={()=>{this.props.history.goBack()
+                            this.props.history.goBack()
+                            // e.preventDefault();
+                            }}> Back </button>
                            
                             {/* <button onClick={()=>this.props.navigation.dispatch(popAction)}>
                             back
@@ -329,4 +331,4 @@ class BookDetails extends Component {
     }
 }
 
-export default withRouter(BookDetails)
+export default withRouter(BackButton)
