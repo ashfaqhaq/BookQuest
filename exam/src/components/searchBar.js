@@ -78,10 +78,11 @@ class SearchBar extends Component {
         <section>
           <div className="wallpaper pt-3">
             <h1> BookQuest </h1>
-            <h2> SO who sent you here ? Farheen or Neha ? arerererer!! </h2>
-            <h2>The website is still under developement , hence its in beta state</h2>
+                   
+                    
+            
             <p>
-              Explore the richness  of books , sea
+              The website is in beta.
             </p>
             <div className="form-container">
               <form onSubmit={this.onSubmit}>
