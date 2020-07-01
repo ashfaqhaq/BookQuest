@@ -84,17 +84,20 @@ class SearchBar extends Component {
             <div className="form-container">
               <form onSubmit={this.onSubmit}>
                 <div className="form-left">
+                {/* <div> */}
                   <label for="search">Enter the name of a book</label>
                   <input type="text" id="search" onChange={this.handleChange} />
+                 
                   <p>Example: Think and grow rich</p>
                   {/* value={this.state.query} */}
-                </div>
-                <input
+                  </div>
+                  <input
                   type="button"
                   onClick={this.onSubmit}
                   value="Get Book Details"
                 />
               </form>
+             
             </div>
           </div>
         </section>

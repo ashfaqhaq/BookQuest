@@ -1,17 +1,3 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
-}
-
 @import url("https://fonts.googleapis.com/css2?family=Kaushan+Script&display=swap");
 @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Fauna+One&display=swap');
@@ -29,12 +15,7 @@ h1 {
 .wallpaper p {
   /* font-family: "Kaushan Script", cursive; */
   font-family: 'Fauna One', serif;
-  text-align: left;
-  padding-left: 1em;
-  padding-right: 1em;
-  padding-bottom: 1em;
-  padding-left: 2.5em;
-  /* font-size: 2em; */
+  text-align: center;
   /* padding: 1em; */
   font-size: 1em;
   margin-bottom: 4em;
@@ -54,7 +35,6 @@ h1 {
 }
 label {
   font-family: 'Fauna One', serif;
-
   color: #262e14ad;
   font-weight: bold;
   display: block;
@@ -100,11 +80,11 @@ input[type="button"]:hover {
   background-color: rgb(154, 84, 211);
 }
 
-.wallpaper::after {
+.wallpaper:after {
   content: "";
   background: url("https://images.unsplash.com/photo-1561627368-fdc44e974e31?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1534&q=80")
     no-repeat center center/contain;
-  position: fixed;
+     position: fixed;
   /* position: relative;
   top: 0; */
   top: 0px;
