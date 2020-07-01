@@ -110,7 +110,7 @@ class BackButton extends Component {
                     let authors = similar_books.getElementsByTagName('authors')[i];
                     let author_list = authors.getElementsByTagName('author')[0];
                     let first_author = author_list.getElementsByTagName('name')[0].textContent;
-                    let data = (similar_titles + ' by ' + first_author)
+                    let data = (similar_titles + ' written by ' + first_author)
                     console.log(data)
                     similar_books_author.push(first_author)
                     similar_books_title.push(similar_titles)
@@ -296,7 +296,7 @@ class BackButton extends Component {
 
                                                 <span>{data}
                                                     <button onClick={() => {
-                                                        var n = data.indexOf("by");
+                                                        var n = data.indexOf("written by");
                                                         var new_title = data.slice(0, n)
                                                         navigator.clipboard.writeText(new_title);
                                                         console.log('copied data ')
