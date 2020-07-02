@@ -60,6 +60,10 @@
     background-position-x: 20%;
     background-position-y: 35%;
   }
+  #wallpaper{
+    background-color: aqua;
+    margin-left: 0;
+  }
 .container-box{
   font-family: 'Cinzel', serif;
   font-weight: bold;
