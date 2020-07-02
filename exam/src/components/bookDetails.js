@@ -192,7 +192,7 @@ class BookDetails extends Component {
                 {!this.state.isLoaded ? (
                     <p> Loading.....</p>
                 ) : (
-                        <div>
+                        <>
                             
                            
                             {/* <button onClick={()=>this.props.navigation.dispatch(popAction)}>
@@ -209,7 +209,7 @@ class BookDetails extends Component {
 
 
 
-{/* 
+                                {/* 
                             <div id="goodreads-widget">
                                 <div id="gr_header"><h1><a rel="nofollow" href="https://www.goodreads.com/book/show/30186948-think-and-grow-rich">Think and Grow Rich Reviews</a></h1></div>
                                 <iframe id="the_iframe" src="https://www.goodreads.com/api/reviews_widget_iframe?did=DEVELOPER_ID&amp;format=html&amp;isbn=1788441028&amp;links=660&amp;min_rating=&amp;review_back=fff&amp;stars=000&amp;text=000" width="565" height="400" frameborder="0"></iframe>
@@ -320,7 +320,7 @@ class BookDetails extends Component {
 
 
 
-                        </div>
+                        </>
                     )}
 
             </div>
