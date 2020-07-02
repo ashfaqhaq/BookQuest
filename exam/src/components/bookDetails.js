@@ -298,7 +298,7 @@ class BookDetails extends Component {
                                                         var new_title = data.slice(0, n)
                                                         navigator.clipboard.writeText(new_title);
                                                         console.log('copied data ')
-                                                    }}> copy to clipboard </button>
+                                                    }}><img src="https://img.icons8.com/fluent/48/000000/copy.png" alt="copy to clipboard"/> </button>
                                                 </span>
 
 

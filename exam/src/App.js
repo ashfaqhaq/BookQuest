@@ -109,15 +109,15 @@ class App extends React.Component {
       <Router >
         <BookProvider>
           <Container>
-          <div className="App primary">
-            <nav class="navbar navbar-light bg-light">
-              <a class="navbar-brand" href="/">Home</a>
+          
+            <nav class="navbar navbar-light bg-light rounded">
+              <a class="navbar-brand" href="/" >Home</a>
             </nav>
           
     {/* <div>{history}</div> */}
 
 
-            
+    <div className="App">  
               
             {/* <Container> */}
             <Switch>
