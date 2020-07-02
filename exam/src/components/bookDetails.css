@@ -61,7 +61,7 @@
     background-position-y: 35%;
   }
   #wallpaper{
-    background-color: aqua;
+   
     margin-left: 0;
   }
 .container-box{
@@ -73,6 +73,7 @@
     /* align-content: center; */
     border-radius: 0.9em;
     margin: 1em;
+    margin-left:0em;
     
 }
 .book-cover{
