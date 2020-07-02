@@ -10,7 +10,7 @@ import { withRouter } from 'react-router-dom';
 import BookDetails from './components/bookDetails';
 import BookProvider from './contextProvider/bookProvider';
 import SearchBar from './components/searchBar';
-
+import {Container} from 'react-bootstrap'
 import NavBar from './components/navbar';
 import BackButton from './components/backButton';
 
@@ -108,6 +108,7 @@ class App extends React.Component {
      
       <Router >
         <BookProvider>
+          <Container>
           <div className="App primary">
             <nav class="navbar navbar-light bg-light">
               <a class="navbar-brand" href="/">Home</a>
@@ -164,8 +165,9 @@ class App extends React.Component {
 
             {/* </Container> */}
           </div>
+          </Container>
         </BookProvider>
-
+        
       </Router>
 
     )

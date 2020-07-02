@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { BookContext } from '../contextProvider/bookProvider'
 import { withRouter } from 'react-router-dom';
 import { Container } from 'react-bootstrap';
+
 // import './bookDetails.css';
 // import { NavigationActions, StackActions } from 'react-navigation';
 // import { BrowserHistory } from 'react-history
@@ -192,11 +193,12 @@ class BackButton extends Component {
                     <p> Loading.....</p>
                 ) : (
                         <div>
+                            <div>
                               <button id="back" onClick={()=>{this.props.history.goBack()
                             this.props.history.goBack()
                             // e.preventDefault();
-                            }}> Back </button>
-                           
+                            }}> Back to the previous search result </button>
+                           </div>
                             {/* <button onClick={()=>this.props.navigation.dispatch(popAction)}>
                             back
                             </button> */}
@@ -226,7 +228,7 @@ class BackButton extends Component {
 
                                 <h1 id="title">  {this.state.title} </h1>
                             </Container>
-
+                             <div >   
                             <Container className="container-box">
                                 {/* <p>  Image: {this.state.image_url}</p> */}
                                 <div className="name">
@@ -292,18 +294,20 @@ class BackButton extends Component {
                                         //     </div>
                                         // </div>
                                         <div className="container-box">
-                                            <div class="card card-body">
-
-                                                <span>{data}
-                                                    <button onClick={() => {
+                                            <div className="card card-body d-flex justify-content-between">
+                                                <span >
+                                                {data}
+                                                   
+                                                  {/* <img src="register (1).png"  alt="copy to clipboard"/> */}
+                                                  
+                                                
+                                                <button onClick={() => {
                                                         var n = data.indexOf("written by");
                                                         var new_title = data.slice(0, n)
                                                         navigator.clipboard.writeText(new_title);
                                                         console.log('copied data ')
-                                                    }}> copy to clipboard </button>
-                                                </span>
-
-
+                                                    }}><img src="https://img.icons8.com/fluent/48/000000/copy.png" alt="copy to clipboard"/> </button>
+                                           </span>  
                                             </div>
                                         </div>
                                         // </div>
@@ -321,11 +325,12 @@ class BackButton extends Component {
                             {/* </Container> */}
 
 
-
+                            </div>
                         </div>
                     )}
 
             </div>
+           
 
         )
     }

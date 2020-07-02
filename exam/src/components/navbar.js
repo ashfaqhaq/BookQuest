@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { BookContext } from '../contextProvider/bookProvider'
+import './navbar.css'
 // import BackButton from './backButton';
 import {
     withRouter
@@ -82,16 +83,19 @@ import {
            
             <div className="Sform-container">
               <form>
-                <div className="Sform-left">
-                  <label for="Ssearch">Enter the name of another book</label>
-                  <input type="text" id="Ssearch" onChange={this.handleChange} />
-                  <p>Example: Think and grow rich</p>
-                  {/* value={this.state.query} */}
-                </div>
-                <button className="btn btn-primary  btn-sm mx-auto"
+                {/* <div className="Sform-left"> */}
+                  <label id ="la" for="Ssearch">Enter the name of another book</label>
+                 <div className="lala">
+                  <input type="text" id="Ssearch" onChange={this.handleChange}></input>
+                 <button id="s"
                   onClick={this.onSubmit}>
                   Get Book Details
                   </button>
+                  
+                  </div>
+                  {/* value={this.state.query} */}
+                
+                
                  
               </form>
             </div>
