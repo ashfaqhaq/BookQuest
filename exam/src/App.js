@@ -13,6 +13,7 @@ import SearchBar from './components/searchBar';
 import {Container} from 'react-bootstrap'
 import NavBar from './components/navbar';
 import BackButton from './components/backButton';
+import Collection from './components/collection'
 
 // import Components from './components/bookDetails';
 // import { BrowserHistory } from 'react-history';
@@ -124,6 +125,7 @@ class App extends React.Component {
 
               <Route path="/" exact >
                 <SearchBar />
+                <Collection />
 
               </Route>
               <Route path="/search/:search_query">

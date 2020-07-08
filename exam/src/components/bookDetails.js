@@ -190,7 +190,9 @@ class BookDetails extends Component {
             <div id="wallpaper">
                 {/* <NavBar /> */}
                 {!this.state.isLoaded ? (
-                    <p> Loading.....</p>
+                   <div className="container bg-info jumbotron center">
+                        Searching for the book
+                       </div>
                 ) : (
                         <>
                             
@@ -237,7 +239,7 @@ class BookDetails extends Component {
                                         <p> Authors:  {this.state.authors_array.map(author => {
                                             return (
                                                 // {author} 
-                                                <span id="authors"> {author} , </span>
+                                                <span id="authors"> {author} . </span>
 
                                             )
                                         })}

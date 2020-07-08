@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import { BookContext } from '../contextProvider/bookProvider'
 import { withRouter } from 'react-router-dom';
 import { Container } from 'react-bootstrap';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faCopy } from '@fortawesome/free-solid-svg-icons'
 
 // import './bookDetails.css';
 // import { NavigationActions, StackActions } from 'react-navigation';
@@ -241,7 +243,7 @@ class BackButton extends Component {
                                         <p> Authors:  {this.state.authors_array.map(author => {
                                             return (
                                                 // {author} 
-                                                <span id="authors"> {author} , </span>
+                                                <span id="authors"> {author} . </span>
 
                                             )
                                         })}
@@ -295,18 +297,18 @@ class BackButton extends Component {
                                         // </div>
                                         <div className="container-box">
                                             <div className="card card-body d-flex justify-content-between">
-                                                <span >
+                                                <span className="icon" >
                                                 {data}
                                                    
                                                   {/* <img src="register (1).png"  alt="copy to clipboard"/> */}
-                                                  
-                                                
+                                                  </span>
+                                                <span>
                                                 <button onClick={() => {
                                                         var n = data.indexOf("written by");
                                                         var new_title = data.slice(0, n)
                                                         navigator.clipboard.writeText(new_title);
                                                         console.log('copied data ')
-                                                    }}><img src="https://img.icons8.com/fluent/48/000000/copy.png" alt="copy to clipboard"/> </button>
+                                                    }}><FontAwesomeIcon icon={faCopy} /></button>
                                            </span>  
                                             </div>
                                         </div>
