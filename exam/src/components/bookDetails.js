@@ -190,7 +190,7 @@ class BookDetails extends Component {
             <div id="wallpaper">
                 {/* <NavBar /> */}
                 {!this.state.isLoaded ? (
-                   <div className="container bg-info jumbotron center">
+                   <div className="container jumbotron center">
                         Searching for the book
                        </div>
                 ) : (
