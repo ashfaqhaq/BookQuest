@@ -41,7 +41,7 @@ class BookDetails extends Component {
         let search = (this.props.match.params.search_query)
         //    const { search } = this.context
         // console.log(search,'is the book')
-        const proxyurl = "https://cors-anywhere-ashfaq.herokuapp.com";
+        const proxyurl = "https://cors-anywhere-ashfaq.herokuapp.com/";
         const url = "https://www.goodreads.com/book/title.xml?&key=Qc7VROD3HnHe8Z5osP9Gzw&title=" + search;
         console.time('test');
         fetch(proxyurl + url) // https://cors-anywhere.herokuapp.com/https://example.com
